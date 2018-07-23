@@ -21,8 +21,13 @@
     </center>
     <script>
         var name = "";
-        function plot(data) {
-            data = JSON.parse(data);
+        function plot(response) {
+            response = JSON.parse(response);
+            if (response.code != 0) {
+                alert(response.msg);
+                return;
+            }
+            var data = response.data;
             if ($.isEmptyObject(data)) {
                 alert("没找到用户" + name + "的数据。");
                 return;
