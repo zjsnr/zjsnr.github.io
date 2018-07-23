@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Query</title>
+    <!-- <script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+<body>
+    <center>
+        <input value="龙傲天X">
+        <button>查</button>
+        <!-- <div style="height: 80%; width: 80%;"> -->
+        <div id="chartContainer" style="height: 600px; width:80%;"></div>
+        <!-- </div> -->
+    </center>
+    <script>
+        var name = "";
+        function plot(data) {
+            data = JSON.parse(data);
+            if ($.isEmptyObject(data)) {
+                alert("没找到用户" + name + "的数据。");
+                return;
+            }
+            datasets = [];
+            for (key in data) {
+                datasets.push({
+                    x: new Date(key),
+                    y: data[key]
+                })
+            }
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "用户: " + name
+                },
+                axisX: {
+                    title: "时间",
+                    labelAngle: -30
+                },
+                axisY: {
+                    title: "总出征",
+                    includeZero: false
+                },
+                zoomEnabled: true,
+                data: [{
+                    type: "line",
+                    dataPoints: datasets
+                }]
+            });
+            chart.render();
+        }
+        $("button").click(function () {
+            name = $("input").val();
+            console.log(name);
+            var url = "https://cloud.bmob.cn/b3f8e7d7fcd4c7c1/query?name=" + encodeURIComponent(name);
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: "jsonp",
+                contentType: "application/json; charset=utf-8",
+                data: '',
+                jsonp: 'callback',
+                success: plot
+            });
+        });
+    </script>
+</body>
+
+</html>
