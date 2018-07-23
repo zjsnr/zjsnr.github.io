@@ -33,10 +33,11 @@
                 return;
             }
             datasets = [];
-            for (key in data) {
+            for (index in data) {
+                var item = data[index];
                 datasets.push({
-                    x: new Date(key),
-                    y: data[key]
+                    x: new Date(item.dt),
+                    y: item.pve
                 })
             }
             var chart = new CanvasJS.Chart("chartContainer", {
@@ -61,7 +62,6 @@
         }
         $("button").click(function () {
             name = $("input").val();
-            console.log(name);
             var url = "https://cloud.bmob.cn/b3f8e7d7fcd4c7c1/query?name=" + encodeURIComponent(name);
             $.ajax({
                 url: url,
