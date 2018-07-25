@@ -20,18 +20,18 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-            <a id="forkme_banner" href="https://github.com/zjsnr/zjsnr.github.io">View on GitHub</a>
-            <h1 id="project_title">出征自助查询</h1>
-            <h2 id="project_tagline">没有任何钦点的意思</h2>
-
+            <a id="forkme_banner" href="https://github.com/zjsnr/zjsnr.github.io"> GitHub </a>
+            <h1 id="project_title" style="display: block"> 出征自助查询 </h1>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
         <section id="main_content" class="inner">
-            <input id="queryInput" style="zoom:120%; min-height: 1.3em; padding-left: 0.1em">
-            <button id="queryButton" style="zoom:120%; min-width: 4em">查</button>
+            <center>
+                <input id="queryInput" style="zoom:150%; min-height: 1.3em; padding-left: 0.2em">
+                <button id="queryButton" style="zoom:150%; min-width: 4em"> 查询 </button>
+            </center>
             <div id="chartContainer" style="height: 600px"></div>
         </section>
     </div>
@@ -115,7 +115,7 @@
         });
     });
     var input = $("#queryInput");
-    var defaultInput = "输入用户名或 UID 查询";
+    var defaultInput = "输入 用户名 或 UID 查询";
     input.val(defaultInput);
     // bind
     input.focus(function () {
