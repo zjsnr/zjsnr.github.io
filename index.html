@@ -12,7 +12,7 @@
 
 <body>
     <center>
-        <input value="输入用户名">
+        <input value="输入用户名或UID">
         <button>查</button>
         <div id="chartContainer" style="height: 600px; width:80%;"></div>
     </center>
@@ -39,7 +39,9 @@
             }
             var chart = new CanvasJS.Chart("chartContainer", {
                 title: {
-                    text: "用户: " + name
+                    text: "用户: " + response.username + " (uid=" + response.uid + ")",
+                    fontFamily: "Sim-Hei",
+                    fontSize: 30
                 },
                 axisX: {
                     title: "时间",
