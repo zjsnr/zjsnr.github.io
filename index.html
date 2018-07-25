@@ -41,13 +41,23 @@
                 axisX: {
                     title: "时间",
                     labelAngle: -30,
-                    valueFormatString: "MM.DD"
+                    valueFormatString: "M.D",
+                    gridThickness: 0.4
+                },
+                zoomEnabled: true,
+                rangeChanged: function (e) {
+                    var range = e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum;
+                    console.log("time range = " + range);
+                    if (0 < range && range < 5 * 24 * 3600 * 1000) {
+                        chart.axisX[0].set("valueFormatString", "M.D HH:mm");
+                    } else {
+                        chart.axisX[0].set("valueFormatString", "M.D");
+                    };
                 },
                 axisY: {
                     title: "总出征",
                     includeZero: false
                 },
-                zoomEnabled: true,
                 data: [{
                     type: "line",
                     xValueFormatString: "YY-MM-DD HH:mm",
