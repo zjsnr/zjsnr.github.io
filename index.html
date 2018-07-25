@@ -12,12 +12,11 @@
 
 <body>
     <center>
-        <input value="输入用户名或UID">
-        <button>查</button>
+        <input style="zoom:120%">
+        <button style="zoom:120%">查</button>
         <div id="chartContainer" style="height: 600px; width:80%;"></div>
     </center>
     <script>
-        var name = "";
         function plot(response) {
             response = JSON.parse(response);
             if (response.code != 0) {
@@ -25,10 +24,6 @@
                 return;
             }
             var data = response.data;
-            if ($.isEmptyObject(data)) {
-                alert("没找到用户" + name + "的数据。");
-                return;
-            }
             datasets = [];
             for (index in data) {
                 var item = data[index];
@@ -55,15 +50,14 @@
                 zoomEnabled: true,
                 data: [{
                     type: "line",
-                    xValueFormatString:"YY-MM-DD HH:mm",
+                    xValueFormatString: "YY-MM-DD HH:mm",
                     dataPoints: datasets
                 }]
             });
             chart.render();
         }
         $("button").click(function () {
-            name = $("input").val();
-            var url = "https://cloud.bmob.cn/b3f8e7d7fcd4c7c1/query?name=" + encodeURIComponent(name);
+            var url = "https://cloud.bmob.cn/b3f8e7d7fcd4c7c1/query?name=" + encodeURIComponent($("input").val());
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -73,6 +67,19 @@
                 jsonp: 'callback',
                 success: plot
             });
+        });
+        var input = $("input");
+        var defaultInput = "输入用户名或 UID 查询";
+        input.val(defaultInput);
+        input.focus(function () {
+            if (input.val() == defaultInput) {
+                input.val('');
+            }
+        });
+        input.blur(function () {
+            if (input.val() == '') {
+                input.val(defaultInput);
+            }
         });
     </script>
 </body>
