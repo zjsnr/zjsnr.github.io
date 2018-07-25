@@ -1,97 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=" en-US ">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Query</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title> 战舰少女 - 啊 </title>
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
 <body>
-    <center>
-        <input style="zoom:120%">
-        <button style="zoom:120%">查</button>
-        <div id="chartContainer" style="height: 600px; width:80%;"></div>
-    </center>
-    <script>
-        function plot(response) {
-            response = JSON.parse(response);
-            if (response.code != 0) {
-                alert(response.msg);
-                return;
-            }
-            var data = response.data;
-            datasets = [];
-            for (index in data) {
-                var item = data[index];
-                datasets.push({
-                    x: new Date(item.dt),
-                    y: item.pve
-                })
-            }
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "用户: " + response.username + " (uid=" + response.uid + ")",
-                    fontFamily: "Sim-Hei",
-                    fontSize: 30
-                },
-                axisX: {
-                    title: "时间",
-                    labelAngle: -30,
-                    valueFormatString: "M.D",
-                    gridThickness: 0.4
-                },
-                zoomEnabled: true,
-                rangeChanged: function (e) {
-                    var range = e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum;
-                    console.log("time range = " + range);
-                    if (0 < range && range < 5 * 24 * 3600 * 1000) {
-                        chart.axisX[0].set("valueFormatString", "M.D HH:mm");
-                    } else {
-                        chart.axisX[0].set("valueFormatString", "M.D");
-                    };
-                },
-                axisY: {
-                    title: "总出征",
-                    includeZero: false
-                },
-                data: [{
-                    type: "line",
-                    xValueFormatString: "YY-MM-DD HH:mm",
-                    dataPoints: datasets
-                }]
-            });
-            chart.render();
-        }
-        $("button").click(function () {
-            var url = "https://cloud.bmob.cn/b3f8e7d7fcd4c7c1/query?name=" + encodeURIComponent($("input").val());
-            $.ajax({
-                url: url,
-                type: 'GET',
-                dataType: "jsonp",
-                contentType: "application/json; charset=utf-8",
-                data: '',
-                jsonp: 'callback',
-                success: plot
-            });
-        });
-        var input = $("input");
-        var defaultInput = "输入用户名或 UID 查询";
-        input.val(defaultInput);
-        input.focus(function () {
-            if (input.val() == defaultInput) {
-                input.val('');
-            }
-        });
-        input.blur(function () {
-            if (input.val() == '') {
-                input.val(defaultInput);
-            }
-        });
-    </script>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <h1 id="project_title">出征自助查询</h1>
+            <h2 id="project_tagline">没有任何钦点的意思</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+            <input id="queryInput" style="zoom:120%">
+            <button id="queryButton" style="zoom:120%">查</button>
+            <div id="chartContainer" style="height: 600px"></div>
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+
+            <p>Published with
+                <a href="https://pages.github.com">GitHub Pages</a>
+            </p>
+        </footer>
+    </div>
+
+
+
 </body>
+
+<script>
+    console.log("running");
+    // alert("running");
+    function plot(response) {
+        response = JSON.parse(response);
+        if (response.code != 0) {
+            alert(response.msg);
+            return;
+        }
+        var data = response.data;
+        datasets = [];
+        for (index in data) {
+            var item = data[index];
+            datasets.push({
+                x: new Date(item.dt),
+                y: item.pve
+            })
+        }
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title: {
+                text: "用户: " + response.username + " (uid=" + response.uid + ")",
+                fontFamily: "Sim-Hei",
+                fontSize: 30
+            },
+            axisX: {
+                title: "时间",
+                labelAngle: -30,
+                valueFormatString: "M.D",
+                gridThickness: 0.4
+            },
+            zoomEnabled: true,
+            rangeChanged: function (e) {
+                var range = e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum;
+                console.log("time range = " + range);
+                if (0 < range && range < 5 * 24 * 3600 * 1000) {
+                    chart.axisX[0].set("valueFormatString", "M.D HH:mm");
+                } else {
+                    chart.axisX[0].set("valueFormatString", "M.D");
+                };
+            },
+            axisY: {
+                title: "总出征",
+                includeZero: false
+            },
+            data: [{
+                type: "line",
+                xValueFormatString: "YY-MM-DD HH:mm",
+                dataPoints: datasets
+            }]
+        });
+        chart.render();
+    }
+    $("#queryButton").click(function () {
+        console.log("quering...");
+        var url = "https://cloud.bmob.cn/b3f8e7d7fcd4c7c1/query?name=" + encodeURIComponent($("input").val());
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: "jsonp",
+            contentType: "application/json; charset=utf-8",
+            data: '',
+            jsonp: 'callback',
+            success: plot
+        });
+    });
+    var input = $("#queryInput");
+    var defaultInput = "输入用户名或 UID 查询";
+    input.val(defaultInput);
+    input.focus(function () {
+        if (input.val() == defaultInput) {
+            input.val('');
+        }
+    });
+    input.blur(function () {
+        if (input.val() == '') {
+            input.val(defaultInput);
+        }
+    });
+</script>
 
 </html>
