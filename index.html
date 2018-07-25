@@ -32,14 +32,13 @@
                 <input id="queryInput" style="zoom:150%; min-height: 1.3em; padding-left: 0.2em">
                 <button id="queryButton" style="zoom:150%; min-width: 4em"> 查询 </button>
             </center>
-            <div id="chartContainer" style="height: 600px"></div>
+            <div id="chartContainer" style="height: 600px; margin-bottom: 10px"></div>
         </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
         <footer class="inner">
-
             <p>Published with
                 <a href="https://pages.github.com">GitHub Pages</a>
             </p>
@@ -70,7 +69,7 @@
             title: {
                 text: "用户: " + response.username + " (uid=" + response.uid + ")",
                 fontFamily: "Sim-Hei",
-                fontSize: 30
+                fontSize: 25
             },
             axisX: {
                 title: "时间",
@@ -89,7 +88,6 @@
                 };
             },
             axisY: {
-                title: "总出征",
                 includeZero: false,
                 labelFontSize: "100%"
             },

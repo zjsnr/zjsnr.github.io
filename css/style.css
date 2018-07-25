@@ -453,7 +453,7 @@
     background: linear-gradient(to top, #373737, #212121); }
   
   #header_wrap .inner {
-    padding: 50px 10px 30px 10px; }
+    padding: 20px 15px 15px 15px; }
   
   #project_title {
     margin: 0;
@@ -509,7 +509,7 @@
     border-bottom: 1px solid #111; }
   
   #main_content {
-    padding-top: 40px; }
+    padding-top: 20px; }
   
   #footer_wrap {
     background: #212121; }
