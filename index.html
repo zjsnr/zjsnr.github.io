@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-    <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title> 战舰少女 - 啊 </title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <title> 战舰少女 - 出征查询 </title>
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -19,6 +20,7 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
+            <a id="forkme_banner" href="https://github.com/zjsnr/zjsnr.github.io">View on GitHub</a>
             <h1 id="project_title">出征自助查询</h1>
             <h2 id="project_tagline">没有任何钦点的意思</h2>
 
@@ -49,8 +51,6 @@
 </body>
 
 <script>
-    console.log("running");
-    // alert("running");
     function plot(response) {
         response = JSON.parse(response);
         if (response.code != 0) {
@@ -90,7 +90,8 @@
             },
             axisY: {
                 title: "总出征",
-                includeZero: false
+                includeZero: false,
+                labelFontSize: "100%"
             },
             data: [{
                 type: "line",
