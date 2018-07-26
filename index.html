@@ -51,7 +51,6 @@
 
 <script>
     function plot(response) {
-        response = JSON.parse(response);
         if (response.code != 0) {
             alert(response.msg);
             return;
@@ -100,16 +99,9 @@
         chart.render();
     }
     $("#queryButton").click(function () {
-        console.log("quering...");
-        var url = "https://cloud.bmob.cn/b3f8e7d7fcd4c7c1/query?name=" + encodeURIComponent($("input").val());
-        $.ajax({
-            url: url,
-            type: 'GET',
-            dataType: "jsonp",
-            contentType: "application/json; charset=utf-8",
-            data: '',
-            jsonp: 'callback',
-            success: plot
+        var url = "https://1596403937898061.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/queryPve/?name=" + encodeURIComponent($("input").val());
+        $.getJSON(url, function (data) {
+            plot(data);
         });
     });
     var input = $("#queryInput");
