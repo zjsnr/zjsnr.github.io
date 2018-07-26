@@ -99,7 +99,8 @@
         chart.render();
     }
     $("#queryButton").click(function () {
-        var url = "https://1596403937898061.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/queryPve/?name=" + encodeURIComponent($("input").val());
+        var url = "https://1596403937898061.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/"
+        url += "?name=" + encodeURIComponent($("input").val());
         $.getJSON(url, function (data) {
             plot(data);
         });
