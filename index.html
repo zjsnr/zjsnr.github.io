@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=" en-US ">
+<html lang="zh-CN">
 
 <head>
     <meta charset='utf-8'>
@@ -10,11 +10,42 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/favicon.ico">
     <title> 战舰少女 - 出征查询 </title>
-    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
+
+<style>
+    input {
+        zoom: 150%;
+        min-height: 1.3em;
+        padding-left: 0.2em
+    }
+
+    button {
+        zoom: 150%;
+        min-width: 4em
+    }
+
+    #project_title {
+        display: block
+    }
+
+    #chartContainer {
+        height: 600px;
+        margin-top: 10px
+    }
+
+    #queryBlock {
+        text-align: center
+    }
+
+    #queryInput, #queryButton {
+        margin: 1px;
+        padding: 1px;
+        vertical-align: bottom
+    }
+</style>
 
 <body>
 
@@ -22,18 +53,18 @@
     <div id="header_wrap" class="outer">
         <header class="inner">
             <a id="forkme_banner" href="https://github.com/zjsnr/zjsnr.github.io"> GitHub </a>
-            <h1 id="project_title" style="display: block"> 出征自助查询 </h1>
+            <h1 id="project_title"> 出征自助查询 </h1>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
         <section id="main_content" class="inner">
-            <center>
-                <input id="queryInput" style="zoom:150%; min-height: 1.3em; padding-left: 0.2em">
-                <button id="queryButton" style="zoom:150%; min-width: 4em"> 查询 </button>
-            </center>
-            <div id="chartContainer" style="height: 600px; margin-top: 10px"></div>
+            <div id="queryBlock">
+                <input id="queryInput" placeholder="输入 用户名 或 UID 查询">
+                <button id="queryButton"> 查询 </button>
+                <div id="chartContainer"></div>
+            </div>
         </section>
     </div>
 
@@ -46,81 +77,62 @@
         </footer>
     </div>
 
-
-
 </body>
 
 <script>
-    function plot(response) {
-        if (response.code != 0) {
-            alert(response.msg);
-            return;
-        }
-        var data = response.data;
-        datasets = [];
-        for (index in data) {
-            var item = data[index];
-            datasets.push({
-                x: new Date(item.dt),
-                y: item.pve
-            })
-        }
-        var chart = new CanvasJS.Chart("chartContainer", {
-            title: {
-                text: "用户: " + response.username + " (uid=" + response.uid + ")",
-                fontFamily: "Sim-Hei",
-                fontSize: 25
-            },
-            axisX: {
-                title: "时间",
-                labelAngle: -30,
-                valueFormatString: "M.D",
-                gridThickness: 0.4
-            },
-            zoomEnabled: true,
-            rangeChanged: function (e) {
-                var range = e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum;
-                console.log("time range = " + range);
-                if (0 < range && range < 5 * 24 * 3600 * 1000) {
-                    chart.axisX[0].set("valueFormatString", "M.D HH:mm");
-                } else {
-                    chart.axisX[0].set("valueFormatString", "M.D");
-                };
-            },
-            axisY: {
-                includeZero: false,
-                labelFontSize: "100%"
-            },
-            data: [{
-                type: "line",
-                xValueFormatString: "YY-MM-DD HH:mm",
-                dataPoints: datasets
-            }]
-        });
-        chart.render();
-    }
     $("#queryButton").click(function () {
         var url = "https://1596403937898061.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/"
-        url += "?name=" + encodeURIComponent($("input").val());
-        $.getJSON(url, function (data) {
-            plot(data);
+        url += "?name=" + encodeURIComponent($("#queryInput").val());
+        $.getJSON(url, function (response) {
+            if (response.code != 0) {
+                alert(response.msg);
+                return;
+            }
+            var data = response.data;
+            datasets = [];
+            for (index in data) {
+                var item = data[index];
+                datasets.push({
+                    x: new Date(item.dt),
+                    y: item.pve
+                })
+            }
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "用户: " + response.username + " (uid=" + response.uid + ")",
+                    fontFamily: "Sim-Hei",
+                    fontSize: 25
+                },
+                axisX: {
+                    title: "时间",
+                    labelAngle: -30,
+                    valueFormatString: "M.D",
+                    gridThickness: 0.4
+                },
+                zoomEnabled: true,
+                rangeChanged: function (e) {
+                    var range = e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum;
+                    console.log("time range = " + range);
+                    if (0 < range && range < 5 * 24 * 3600 * 1000) {
+                        chart.axisX[0].set("valueFormatString", "M.D HH:mm");
+                    } else {
+                        chart.axisX[0].set("valueFormatString", "M.D");
+                    };
+                },
+                axisY: {
+                    includeZero: false,
+                    labelFontSize: "100%"
+                },
+                data: [{
+                    type: "line",
+                    xValueFormatString: "YY-MM-DD HH:mm",
+                    dataPoints: datasets
+                }]
+            });
+            chart.render();
         });
     });
-    var input = $("#queryInput");
-    var defaultInput = "输入 用户名 或 UID 查询";
-    input.val(defaultInput);
-    // bind
-    input.focus(function () {
-        if (input.val() == defaultInput) {
-            input.val('');
-        }
-    });
-    input.blur(function () {
-        if (input.val() == '') {
-            input.val(defaultInput);
-        }
-    });
-    input.keypress(function (e) {
+    $("#queryInput").keypress(function (e) {
         if (e.keyCode == 13) {
             $("#queryButton").click();
         }
