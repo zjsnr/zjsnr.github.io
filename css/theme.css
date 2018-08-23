@@ -1,0 +1,23 @@
+#nav-container{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#github-icon{
+  vertical-align: bottom
+}
+
+.container {
+  padding-top: 3%;
+}
+
+#queryBlock{
+  max-width: 500px;
+}
+
+#chartContainer {
+  height: 600px;
+  margin-top: 10px;
+}
+
+
