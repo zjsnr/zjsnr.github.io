@@ -509,7 +509,10 @@
     border-bottom: 1px solid #111; }
   
   #main_content {
-    padding-top: 20px; }
+    padding-top: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
   
   #footer_wrap {
     background: #212121; }
