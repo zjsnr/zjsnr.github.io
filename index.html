@@ -3,222 +3,74 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,maximum-scale=2">
-    <meta name="theme-color" content="#1e2327">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/favicon.ico">
-    <title> 战舰少女 - 出征查询 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
-    <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts-en.common.js"></script>
+    <meta name="description" content="没有任何钦点的意思">
+    <meta name="author" content="拒绝查水表委员会">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title> 战舰少女 - 自助查询 </title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link href="css/theme.css" rel="stylesheet">
 </head>
 
-<style>
-    input {
-        zoom: 150%;
-        min-height: 1.3em;
-        padding-left: 0.2em
-    }
-
-    button {
-        zoom: 150%;
-        min-width: 4em
-    }
-
-    #project_title {
-        display: block
-    }
-
-    #chartContainer {
-        height: 600px;
-        margin-top: 10px;
-    }
-
-    #queryBlock {
-        text-align: center
-    }
-
-    #queryInput,
-    #queryButton {
-        margin: 1px;
-        padding: 1px;
-        vertical-align: bottom
-    }
-</style>
-
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container" id="nav-container">
+            <a class="navbar-brand" href="#">
+                <strong>自助查询</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-            <a id="forkme_banner" href="https://github.com/zjsnr/zjsnr.github.io"> GitHub </a>
-            <h1 id="project_title"> 出征自助查询 </h1>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-        <section id="main_content" class="inner">
-            <div id="queryBlock">
-                <input id="queryInput" placeholder="输入 用户名 或 UID 查询">
-                <button id="queryButton"> 查询 </button>
-                <div id="chartContainer"></div>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"> 出征查询 </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#"> 出征排行（未完成） </a>
+                    </li>
+                </ul>
+                <a class="navbar-brand" id="github-icon" href="#">
+                    <img src="images/blacktocat.png"> GitHub
+                </a>
             </div>
-        </section>
+        </div>
+    </nav>
+
+
+    <div class="container" role="main">
+        <!-- 输入部分 -->
+        <div class="row justify-content-center">
+            <div class="input-group input-group-lg col" id="queryBlock">
+                <input id="queryInput" type="text" class="form-control" placeholder="输入 用户名 或 UID 查询">
+                <div class="input-group-append">
+                    <button id="queryButton" class="btn btn-outline-secondary" type="button">查询</button>
+                </div>
+            </div>
+        </div>
+        <!-- 作图 -->
+        <div id="chartContainer"></div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-        <footer class="inner">
-            <p>Published with
-                <a href="https://pages.github.com">GitHub Pages</a>
-            </p>
-        </footer>
-    </div>
 
+    <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts-en.common.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="js/query.js"></script>
 </body>
-
-<script>
-    function convolution(data, kernal) {
-        var kSize = kernal.length;
-        var hkSize = Math.floor(kSize / 2);
-        if (kSize % 2 != 1) {
-            throw "kernal.length should be an odd number!";
-        }
-
-        // padding 数组
-        var _padding = Array.apply(null, Array(kSize)).map(() => 0.0);
-
-        // data padded 
-        var padded = _padding.concat(data.map(item => item[1]), _padding);
-
-        // 权重数组
-        var rights = _padding.concat(Array.apply(null, Array(data.length)).map(() => 1.0), _padding);
-
-        var result = [];
-        for (var index = 0; index < data.length; index++) {
-            var sum = 0.0;
-            var rightsSum = 0.0;
-            for (var pos = 0; pos < kSize; pos++) {
-                sum += kernal[pos] * padded[index + pos + hkSize + 1];
-                rightsSum += kernal[pos] * rights[index + pos + hkSize + 1];
-            }
-            result.push([data[index][0], sum / rightsSum]);
-        }
-        return result;
-    }
-    var myChart = null;
-    $("#queryButton").click(function () {
-        var url = "https://1596403937898061.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/"
-        url += "?name=" + encodeURIComponent($("#queryInput").val());
-        $.getJSON(url, function (response) {
-            if (response.code != 0) {
-                alert(response.msg);
-                return;
-            }
-            var data = response.data;
-            // 分离数据、计算实时速度
-            var pveNum = [];
-            var pveSpeed = []
-            for (index in data) {
-                pveNum.push([new Date(data[index].dt), data[index].pve])
-                if (index > 0) {
-                    var now = new Date(data[index].dt);
-                    var last = new Date(data[index - 1].dt);
-                    var duration = (now.getTime() - last.getTime()) / (24 * 3600 * 1000);
-                    pveSpeed.push([
-                        new Date((now.getTime() + last.getTime()) / 2),
-                        (data[index].pve - data[index - 1].pve) / duration]);
-                }
-            }
-            // 速度加一个卷积，平滑一下
-            pveSpeed = convolution(pveSpeed, [0.1, 0.2, 0.3, 0.5, 0.8, 0.5, 0.3, 0.2, 0.1]);
-
-            if (!myChart) {
-                myChart = echarts.init($("#chartContainer").get(0));
-            }
-
-            myChart.setOption({
-                title: {
-                    text: "用户名: " + response.username + "  UID: " + response.uid,
-                    x: 'center',
-                    left: 'center',
-                    // button: "55%",
-                    // textAlign: "center"
-                },
-                grid: {
-                    bottom: "12%",
-                    left: "14%"
-                },
-                tooltip: {},
-                legend: {
-                    margin: 25,
-                    top: 25,
-                    data: ["出征", "出征速度"]
-                },
-                xAxis: {
-                    type: "time"
-                },
-                yAxis: [
-                    {
-                        name: "出征",
-                        type: "value",
-                        scale: true,
-                        padding: 10
-                    }, {
-                        name: "出征/天",
-                        type: "value",
-                        smooth: true
-                    }
-                ],
-                dataZoom: [{
-                    id: "dataZoomX",
-                    type: "slider",
-                    xAxisIndex: [0],
-                    filterMode: "filter",
-                }],
-                series: [
-                    {
-                        name: "出征",
-                        type: "line",
-                        yAxisIndex: 0,
-                        data: pveNum,
-                        itemStyle: {
-                            normal: {
-                                color: '#222222',  //圈圈的颜色
-                                lineStyle: {
-                                    color: '#666666'  //线的颜色
-                                }
-                            }
-                        }
-                    },
-                    {
-                        name: "出征速度",
-                        type: "line",
-                        yAxisIndex: 1,
-                        data: pveSpeed,
-                        itemStyle: {
-                            normal: {
-                                color: '#FF6666',  //圈圈的颜色
-                                lineStyle: {
-                                    color: '#FF6666'  //线的颜色
-                                }
-                            }
-                        }
-                    }
-                ]
-            });
-            window.onresize = myChart.resize;
-        });
-    });
-    $("#queryInput").keypress(function (e) {
-        if (e.keyCode == 13) {
-            $("#queryButton").click();
-        }
-    })
-</script>
 
 </html>
