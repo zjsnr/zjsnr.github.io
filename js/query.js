@@ -32,7 +32,7 @@ var myChart = null;
 
 $('#queryButton').click(function() {
     var url =
-        'https://1596403937898061.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/'
+        'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/'
     url += '?name=' + encodeURIComponent($('#queryInput').val());
     $.getJSON(url, function(response) {
         if (response.code != 0) {
