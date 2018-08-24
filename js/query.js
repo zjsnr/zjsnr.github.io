@@ -1,33 +1,3 @@
-function convolution(data, kernal) {
-    var kSize = kernal.length;
-    var hkSize = Math.floor(kSize / 2);
-    if (kSize % 2 != 1) {
-        throw 'kernal.length should be an odd number!';
-        }
-
-    // padding 数组
-    var _padding = Array.apply(null, Array(kSize)).map(() => 0.0);
-
-    // data padded
-    var padded = _padding.concat(data.map(item => item[1]), _padding);
-
-    // 权重数组
-    var rights = _padding.concat(
-        Array.apply(null, Array(data.length)).map(() => 1.0), _padding);
-
-    var result = [];
-    for (var index = 0; index < data.length; index++) {
-        var sum = 0.0;
-        var rightsSum = 0.0;
-        for (var pos = 0; pos < kSize; pos++) {
-            sum += kernal[pos] * padded[index + pos + hkSize + 1];
-            rightsSum += kernal[pos] * rights[index + pos + hkSize + 1];
-        }
-        result.push([data[index][0], sum / rightsSum]);
-        }
-    return result;
-}
-
 Date.prototype.format = function(format) {
     /*
     * 使用例子:format="yyyy-MM-dd hh:mm:ss";
@@ -58,7 +28,34 @@ Date.prototype.format = function(format) {
         }
         }
     return format;
-}
+};
+
+Date.prototype.diff = function(t) {
+    return Math.abs(this.getTime() - t.getTime()) / (24 * 3600 * 1000);
+};
+
+function calcSpeed(speedData) {
+    var w = function(t) {
+        var sigma = 4.0;  // sigma = 4 比较平滑，效果看起来比较好
+        return Math.exp(-t * t / sigma);
+    }
+    var result = [];
+    for (var index = 0; index < speedData.length; index++) {
+        var t = speedData[index].t;
+        // speed = int(w(t) * dPve(t)) dt / int(w(t) * dT(t)) dt
+        var sumDeltaPve = 0.0;
+        var sumDT = 0.0;
+        for (var i = 0; i < speedData.length; i++) {
+            var item = speedData[i];
+            sumDeltaPve += w(item.t.diff(t)) * item.dPve;
+            sumDT += w(item.t.diff(t)) * item.dT;
+        }
+        var speed = sumDeltaPve / sumDT;
+
+        result.push([t, speed]);
+    }
+    return result;
+};
 
 var myChart = null;
 
@@ -70,27 +67,27 @@ $('#queryButton').click(function() {
         if (response.code != 0) {
             alert(response.msg);
             return;
-            }
+        }
         var data = response.data;
         // 分离数据、计算实时速度
         var pveNum = [];
-        var pveSpeed = [];
+        var _speedData = [];
         for (index in data) {
             pveNum.push([new Date(data[index].dt), data[index].pve]);
             if (index > 0) {
                 var now = new Date(data[index].dt);
                 var last = new Date(data[index - 1].dt);
-                var duration =
-                    (now.getTime() - last.getTime()) / (24 * 3600 * 1000);
-                pveSpeed.push([
-                    new Date((now.getTime() + last.getTime()) / 2),
-                    (data[index].pve - data[index - 1].pve) / duration
-                ]);
+                _speedData.push({
+                    t: new Date((now.getTime() + last.getTime()) / 2),
+                    dPve: data[index].pve - data[index - 1].pve,
+                    dT: now.diff(last),
+                    speed:
+                        (data[index].pve - data[index - 1].pve) / now.diff(last)
+                });
             }
         }
-        // 速度加一个卷积，平滑一下
-        pveSpeed = convolution(
-            pveSpeed, [0.1, 0.2, 0.3, 0.5, 0.8, 0.5, 0.3, 0.2, 0.1]);
+        // 计算速度
+        speed = calcSpeed(_speedData);
 
         if (!myChart) {
             myChart = echarts.init($('#chartContainer').get(0));
@@ -124,7 +121,8 @@ $('#queryButton').click(function() {
                 axisPointer: {
                     label: {
                         formatter: function(params) {
-                            return params.seriesData[0].data[0].format('yy-MM-dd\nhh:mm:ss');
+                            return params.seriesData[0].data[0].format(
+                                'yy-MM-dd\nhh:mm:ss');
                         }
                     }
                 }
@@ -158,7 +156,7 @@ $('#queryButton').click(function() {
                   name: '出征速度',
                   type: 'line',
                   yAxisIndex: 1,
-                  data: pveSpeed,
+                  data: speed,
                   itemStyle: {
                       normal: {
                           color: '#FF6666',  //圈圈的颜色
@@ -173,6 +171,7 @@ $('#queryButton').click(function() {
         window.onresize = myChart.resize;
     });
 });
+
 $('#queryInput').keypress(function(e) {
     if (e.keyCode == 13) {
         $('#queryButton').click();
