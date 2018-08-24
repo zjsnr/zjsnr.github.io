@@ -3,7 +3,7 @@ function convolution(data, kernal) {
     var hkSize = Math.floor(kSize / 2);
     if (kSize % 2 != 1) {
         throw 'kernal.length should be an odd number!';
-    }
+        }
 
     // padding 数组
     var _padding = Array.apply(null, Array(kSize)).map(() => 0.0);
@@ -24,8 +24,40 @@ function convolution(data, kernal) {
             rightsSum += kernal[pos] * rights[index + pos + hkSize + 1];
         }
         result.push([data[index][0], sum / rightsSum]);
-    }
+        }
     return result;
+}
+
+Date.prototype.format = function(format) {
+    /*
+    * 使用例子:format="yyyy-MM-dd hh:mm:ss";
+    */
+    var o = {
+        'M+': this.getMonth() + 1,                    // month
+        'd+': this.getDate(),                         // day
+        'h+': this.getHours(),                        // hour
+        'm+': this.getMinutes(),                      // minute
+        's+': this.getSeconds(),                      // second
+        'q+': Math.floor((this.getMonth() + 3) / 3),  // quarter
+        'S': this.getMilliseconds()
+        // millisecond
+    }
+
+    if (/(y+)/.test(format)) {
+        format = format.replace(
+            RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+        }
+
+    for (var k in o) {
+        if (new RegExp('(' + k + ')').test(format)) {
+            format = format.replace(
+                RegExp.$1,
+                RegExp.$1.length == 1 ?
+                    o[k] :
+                    ('00' + o[k]).substr(('' + o[k]).length));
+        }
+        }
+    return format;
 }
 
 var myChart = null;
@@ -38,7 +70,7 @@ $('#queryButton').click(function() {
         if (response.code != 0) {
             alert(response.msg);
             return;
-        }
+            }
         var data = response.data;
         // 分离数据、计算实时速度
         var pveNum = [];
@@ -72,9 +104,31 @@ $('#queryButton').click(function() {
                 left: 'center',
             },
             grid: {bottom: '12%', left: '14%'},
-            tooltip: {},
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {type: 'cross'},
+                formatter: function(params) {
+                    var item = params[0];
+                    var result = item.data[0].format('yyyy-MM-dd hh:mm:ss') +
+                        '</br>' + item.seriesName + ': ' +
+                        item.data[1].toFixed(0);
+                    result = '<font color="' + item.color + '">' + result +
+                        '</font>';
+                    return result
+                },
+                backgroundColor: 'rgba(50, 50, 50, 0.2)'
+            },
             legend: {margin: 25, top: 25, data: ['出征', '出征速度']},
-            xAxis: {type: 'time'},
+            xAxis: {
+                type: 'time',
+                axisPointer: {
+                    label: {
+                        formatter: function(params) {
+                            return params.seriesData[0].data[0].format('yy-MM-dd\nhh:mm:ss');
+                        }
+                    }
+                }
+            },
             yAxis: [
                 {name: '出征', type: 'value', scale: true, padding: 10},
                 {name: '出征/天', type: 'value', smooth: true}
@@ -87,32 +141,32 @@ $('#queryButton').click(function() {
             }],
             series: [
                 {
-                    name: '出征',
-                    type: 'line',
-                    yAxisIndex: 0,
-                    data: pveNum,
-                    itemStyle: {
-                        normal: {
-                            color: '#222222',  //圈圈的颜色
-                            lineStyle: {
-                                color: '#666666'  //线的颜色
-                            }
-                        }
-                    }
+                  name: '出征',
+                  type: 'line',
+                  yAxisIndex: 0,
+                  data: pveNum,
+                  itemStyle: {
+                      normal: {
+                          color: '#0099CC',  //圈圈的颜色
+                          lineStyle: {
+                              color: '#0099CC'  //线的颜色
+                          }
+                      }
+                  }
                 },
                 {
-                    name: '出征速度',
-                    type: 'line',
-                    yAxisIndex: 1,
-                    data: pveSpeed,
-                    itemStyle: {
-                        normal: {
-                            color: '#FF6666',  //圈圈的颜色
-                            lineStyle: {
-                                color: '#FF6666'  //线的颜色
-                            }
-                        }
-                    }
+                  name: '出征速度',
+                  type: 'line',
+                  yAxisIndex: 1,
+                  data: pveSpeed,
+                  itemStyle: {
+                      normal: {
+                          color: '#FF6666',  //圈圈的颜色
+                          lineStyle: {
+                              color: '#FF6666'  //线的颜色
+                          }
+                      }
+                  }
                 }
             ]
         });
