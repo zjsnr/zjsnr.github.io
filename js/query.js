@@ -11,12 +11,12 @@ Date.prototype.format = function(format) {
         'q+': Math.floor((this.getMonth() + 3) / 3),  // quarter
         'S': this.getMilliseconds()
         // millisecond
-    }
+    };
 
     if (/(y+)/.test(format)) {
         format = format.replace(
             RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
-        }
+    }
 
     for (var k in o) {
         if (new RegExp('(' + k + ')').test(format)) {
@@ -26,7 +26,7 @@ Date.prototype.format = function(format) {
                     o[k] :
                     ('00' + o[k]).substr(('' + o[k]).length));
         }
-        }
+    }
     return format;
 };
 
@@ -34,30 +34,41 @@ Date.prototype.diff = function(t) {
     return Math.abs(this.getTime() - t.getTime()) / (24 * 3600 * 1000);
 };
 
-function calcSpeed(speedData) {
+function smooth(array, sigma, val, dt) {
     var w = function(t) {
-        var sigma = 4.0;  // sigma = 4 比较平滑，效果看起来比较好
+        if (sigma == 0) {
+            return t < 0.001 ? 1 : 0;
+        }
         return Math.exp(-t * t / sigma);
     }
     var result = [];
-    for (var index = 0; index < speedData.length; index++) {
-        var t = speedData[index].t;
-        // speed = int(w(t) * dPve(t)) dt / int(w(t) * dT(t)) dt
-        var sumDeltaPve = 0.0;
-        var sumDT = 0.0;
-        for (var i = 0; i < speedData.length; i++) {
-            var item = speedData[i];
-            sumDeltaPve += w(item.t.diff(t)) * item.dPve;
-            sumDT += w(item.t.diff(t)) * item.dT;
+    for (var index = 0; index < array.length; index++) {
+        var t = array[index].t;
+        var sum1 = 0.0;
+        var sum2 = 0.0;
+        for (var i = 0; i < array.length; i++) {
+            var item = array[i];
+            sum1 += w(item.t.diff(t)) * val(item);
+            sum2 += w(item.t.diff(t)) * dt(item);
         }
-        var speed = sumDeltaPve / sumDT;
-
-        result.push([t, speed]);
+        result.push([t, sum1 / sum2]);
     }
     return result;
 };
 
+function calcPveData(rawPveData, sigma) {
+    var res = smooth(rawPveData, sigma, (item) => item.pve, (item) => 1.0);
+    return res;
+};
+
+function calcSpeed(rawSpeedData, sigma) {
+    // speed = int(w(t) * dPve(t)) dt / int(w(t) * dT(t)) dt
+    return smooth(rawSpeedData, sigma, (item) => item.dPve, (item) => item.dT);
+};
+
 var myChart = null;
+var rawSpeedData = null;
+var rawPveData = null;
 
 $('#queryButton').click(function() {
     var url =
@@ -70,14 +81,17 @@ $('#queryButton').click(function() {
         }
         var data = response.data;
         // 分离数据、计算实时速度
-        var pveNum = [];
-        var _speedData = [];
+        rawPveData = [];
+        rawSpeedData = [];
         for (index in data) {
-            pveNum.push([new Date(data[index].dt), data[index].pve]);
+            rawPveData.push({
+                t: new Date(data[index].dt),
+                pve: data[index].pve
+            });
             if (index > 0) {
                 var now = new Date(data[index].dt);
                 var last = new Date(data[index - 1].dt);
-                _speedData.push({
+                rawSpeedData.push({
                     t: new Date((now.getTime() + last.getTime()) / 2),
                     dPve: data[index].pve - data[index - 1].pve,
                     dT: now.diff(last),
@@ -86,12 +100,16 @@ $('#queryButton').click(function() {
                 });
             }
         }
-        // 计算速度
-        speed = calcSpeed(_speedData);
-
+        var speedData = calcSpeed(rawSpeedData, $('#sigmaRange').val());
+        var pveData = calcPveData(rawPveData,
+            $("#smoothPve").prop("checked")?
+            1: 0.0);
+        // 作图
         if (!myChart) {
             myChart = echarts.init($('#chartContainer').get(0));
         }
+
+        $("#smoothOption").show();
 
         myChart.setOption({
             textStyle: {fontSize: 18},
@@ -142,7 +160,7 @@ $('#queryButton').click(function() {
                   name: '出征',
                   type: 'line',
                   yAxisIndex: 0,
-                  data: pveNum,
+                  data: pveData,
                   itemStyle: {
                       normal: {
                           color: '#0099CC',  //圈圈的颜色
@@ -156,7 +174,7 @@ $('#queryButton').click(function() {
                   name: '出征速度',
                   type: 'line',
                   yAxisIndex: 1,
-                  data: speed,
+                  data: speedData,
                   itemStyle: {
                       normal: {
                           color: '#FF6666',  //圈圈的颜色
@@ -176,4 +194,21 @@ $('#queryInput').keypress(function(e) {
     if (e.keyCode == 13) {
         $('#queryButton').click();
     }
-})
+});
+
+function replot(){
+    if (rawSpeedData) {
+        myChart.setOption({
+            series: [
+                {yAxisIndex: 0, data: calcPveData(rawPveData,
+                    $("#smoothPve").prop("checked")?
+                    1: 0.0)},
+                {yAxisIndex: 1, data: calcSpeed(rawSpeedData, $('#sigmaRange').val())}
+            ]
+        });
+    }
+};
+
+$('#sigmaRange').on('input propertychange', replot);
+
+$("#smoothPve").change(replot);
