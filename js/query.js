@@ -85,12 +85,12 @@ $('#queryButton').click(function() {
         rawSpeedData = [];
         for (index in data) {
             rawPveData.push({
-                t: new Date(data[index].dt),
+                t: new Date(data[index].dt.replace(/-/g, "/")),
                 pve: data[index].pve
             });
             if (index > 0) {
-                var now = new Date(data[index].dt);
-                var last = new Date(data[index - 1].dt);
+                var now = new Date(data[index].dt.replace(/-/g, "/"));
+                var last = new Date(data[index - 1].dt.replace(/-/g, "/"));
                 rawSpeedData.push({
                     t: new Date((now.getTime() + last.getTime()) / 2),
                     dPve: data[index].pve - data[index - 1].pve,

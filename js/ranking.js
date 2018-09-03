@@ -17,11 +17,11 @@ function genTable(resp) {
     
     for (let item of option.data) {
         // 计算是否依然活跃
-        let lastActiveTime = new Date(item.lastActiveTime);
+        let lastActiveTime = new Date(item.lastActiveTime.replace(/-/g, "/"));
         let now = new Date(
             (new Date()).getTime() + (new Date()).getTimezoneOffset() * 60000 +
             3600000 * 8);  // 东八区
-        let maxT = new Date(item.maxT);
+        let maxT = new Date(item.maxT.replace(/-/g, "/"));
         if ((now - maxT) > (9 * 3600 * 1000)) {  // 可能不在榜上了
             item.username += '<span class="badge badge-info">下榜</span>';
         } else if ((maxT - lastActiveTime) < (1000 * 3600 * 4)) {  // 出征停止在
@@ -32,7 +32,7 @@ function genTable(resp) {
                 '<span class="badge badge-secondary">出征停止</span>';
         }
         // 计算是否是 new 或 老贼
-        let firstTime = new Date(item.firstTime);
+        let firstTime = new Date(item.firstTime.replace(/-/g, "/"));
         let passedHours = (now - firstTime) / (1000 * 3600);
         if (passedHours < 24) {  // 24 小时内新上榜
             item.username += '<span class="badge badge-danger">new!</span>';
