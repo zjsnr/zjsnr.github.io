@@ -1,6 +1,3 @@
-var mail = false;
-$('#mail').hide();
-
 function genTable(resp) {
     if (resp.code) {
         alert(resp.msg);
@@ -8,20 +5,18 @@ function genTable(resp) {
     }
     let option = resp.data;
 
-    mail = resp.mail || mail;
     if (mail) {
         option.clickToSelect = true;
         option.columns.unshift({checkbox: true});
-        $('#mail').show();
     }
-    
+
     for (let item of option.data) {
         // 计算是否依然活跃
-        let lastActiveTime = new Date(item.lastActiveTime.replace(/-/g, "/"));
+        let lastActiveTime = new Date(item.lastActiveTime.replace(/-/g, '/'));
         let now = new Date(
             (new Date()).getTime() + (new Date()).getTimezoneOffset() * 60000 +
             3600000 * 8);  // 东八区
-        let maxT = new Date(item.maxT.replace(/-/g, "/"));
+        let maxT = new Date(item.maxT.replace(/-/g, '/'));
         if ((now - maxT) > (24 * 3600 * 1000)) {
             // 可能不在榜上了
             item.username += '<span class="badge badge-info">下榜</span>';
@@ -32,7 +27,7 @@ function genTable(resp) {
             item.username += '<span class="badge badge-secondary">出征停止</span>';
         }
         // 计算是否是 new 或 老贼
-        let firstTime = new Date(item.firstTime.replace(/-/g, "/"));
+        let firstTime = new Date(item.firstTime.replace(/-/g, '/'));
         let passedHours = (now - firstTime) / (1000 * 3600);
         if (passedHours < 24) {  // 24 小时内新上榜
             item.username += '<span class="badge badge-danger">new!</span>';
@@ -42,34 +37,42 @@ function genTable(resp) {
         // slice
         item.maxT = item.maxT.slice(5, 16);
         item.minT = item.minT.slice(5, 16);
-        
+
         item.lenT = item.lenT.toFixed(2);
     }
     $('#table').bootstrapTable(option);
 }
 
 $().ready(function() {
+    mail = (Cookies.get('history').indexOf('AABBABAB') >= 0);
+    console.log(mail);
+    if (!mail) {
+        $('#mail').hide();
+    } else {
+        $('#mail').show();
+    }
     $.getJSON(
         'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/?ranking=1',
         genTable);
 });
 
 $('#mail').click(function() {
-    let selections = $("#table").bootstrapTable("getSelections");
+    let selections = $('#table').bootstrapTable('getSelections');
     console.log(selections);
     console.log(selections.length);
     if (selections.length == 0) {
         return;
     }
-    let mailUrl = "mailto:cs@moefantasy.com?";
+    let mailUrl = 'mailto:cs@moefantasy.com?';
     mailUrl += 'subject=举报' + selections.length + '名用户疑似使用外挂&';
     let body = ''
     selections.forEach(item => {
-        let para = '用户名: ' + item.username.replace(/<span.*\/span>/g,"") + '\n';
+        let para =
+            '用户名: ' + item.username.replace(/<span.*\/span>/g, '') + '\n';
         para += '服务器: ' + item.serverName + '\n';
         para += 'UID: ' + item.uid + '\n';
-        para += '说明: 通过查询狗牌，该用户最近' + Math.floor(item.lenT) + 
-            '天内，每天平均出征在' + Math.floor(item.speed / 100) * 100 + '次以上，有使用外挂嫌疑。\n\n';
+        para += '该用户近' + Math.floor(item.lenT) + '日日均出征在' +
+            Math.floor(item.speed / 100) * 100 + '次以上。\n\n';
         body += para;
     });
     mailUrl += 'body=' + body;
