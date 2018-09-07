@@ -13,8 +13,7 @@
 
     <title> 战舰少女 - 自助查询 </title>
 
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <link href="css/theme.css" rel="stylesheet">
 </head>
@@ -25,18 +24,18 @@
             <a class="navbar-brand" href="#">
                 <strong>自助查询</strong>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-items"
-                aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-items" aria-controls="nav-items" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="nav-items">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"> 出征查询 </a>
+                        <a id="mail-A" class="nav-link" href="#"> 出征查询 </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ranking.html"> 出征排行</a>
+                        <a id="mail-B" class="nav-link" href="ranking.html"> 出征排行</a>
                     </li>
                 </ul>
                 <a class="navbar-brand" id="github-icon" href="https://github.com/zjsnr/zjsnr.github.io">
@@ -77,14 +76,14 @@
     </div>
 
 
-    <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts-en.common.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/common.js"></script>
+
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts-en.common.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
     <script src="js/query.js"></script>
 </body>
