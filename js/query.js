@@ -80,17 +80,20 @@ $('#queryButton').click(function() {
             return;
         }
         var data = response.data;
+        for (item of data) {
+            item.dt = new Date(item.ts * 1000);
+        }
         // 分离数据、计算实时速度
         rawPveData = [];
         rawSpeedData = [];
         for (index in data) {
             rawPveData.push({
-                t: new Date(data[index].dt.replace(/-/g, "/")),
+                t: data[index].dt,
                 pve: data[index].pve
             });
             if (index > 0) {
-                var now = new Date(data[index].dt.replace(/-/g, "/"));
-                var last = new Date(data[index - 1].dt.replace(/-/g, "/"));
+                var now = data[index].dt;
+                var last = data[index - 1].dt;
                 rawSpeedData.push({
                     t: new Date((now.getTime() + last.getTime()) / 2),
                     dPve: data[index].pve - data[index - 1].pve,
