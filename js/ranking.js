@@ -35,7 +35,7 @@ function genTable(resp) {
         }
         // slice
         let fun = (dt) => {
-            return "" + dt.getMonth() + "/" + dt.getDate() + " " + dt.getHours() + ":" + dt.getMinutes();
+            return "" + (dt.getMonth() + 1) + "/" + dt.getDate() + " " + dt.getHours() + ":" + dt.getMinutes();
         };
         item.maxT = fun(maxT);
         item.minT = fun(minT);
