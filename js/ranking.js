@@ -12,11 +12,10 @@ function genTable(resp) {
 
     for (let item of option.data) {
         // 计算是否依然活跃
-        let lastActiveTime = new Date(item.lastActiveTime.replace(/-/g, '/'));
-        let now = new Date(
-            (new Date()).getTime() + (new Date()).getTimezoneOffset() * 60000 +
-            3600000 * 8);  // 东八区
-        let maxT = new Date(item.maxT.replace(/-/g, '/'));
+        let lastActiveTime = new Date(item.lastActiveTime * 1000);
+        let now = new Date();
+        let maxT = new Date(item.maxT * 1000);
+        let minT = new Date(item.minT * 1000);
         if ((now - maxT) > (24 * 3600 * 1000)) {
             // 可能不在榜上了
             item.username += '<span class="badge badge-info">下榜</span>';
@@ -27,7 +26,7 @@ function genTable(resp) {
             item.username += '<span class="badge badge-secondary">出征停止</span>';
         }
         // 计算是否是 new 或 老贼
-        let firstTime = new Date(item.firstTime.replace(/-/g, '/'));
+        let firstTime = new Date(item.firstTime * 1000);
         let passedHours = (now - firstTime) / (1000 * 3600);
         if (passedHours < 24) {  // 24 小时内新上榜
             item.username += '<span class="badge badge-danger">new!</span>';
@@ -35,22 +34,29 @@ function genTable(resp) {
             item.username += '<span class="badge badge-danger">老贼!</span>';
         }
         // slice
-        item.maxT = item.maxT.slice(5, 16);
-        item.minT = item.minT.slice(5, 16);
-
+        let fun = (dt) => {
+            return "" + dt.getMonth() + "/" + dt.getDate() + " " + dt.getHours() + ":" + dt.getMinutes();
+        };
+        item.maxT = fun(maxT);
+        item.minT = fun(minT);
         item.lenT = item.lenT.toFixed(2);
+
     }
     $('#table').bootstrapTable(option);
 }
 
 $().ready(function() {
-    mail = (Cookies.get('history').indexOf('AABBABAB') >= 0);
-    console.log(mail);
-    if (!mail) {
-        $('#mail').hide();
-    } else {
-        $('#mail').show();
+    let cookie = Cookies.get('history');
+    if (cookie) {
+        mail = (cookie.indexOf('AABBABAB') >= 0);
+        console.log(mail);
+        if (!mail) {
+            $('#mail').hide();
+        } else {
+            $('#mail').show();
+        }
     }
+    
     $.getJSON(
         'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/?ranking=1',
         genTable);
