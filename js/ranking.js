@@ -5,7 +5,8 @@ function genTable(resp) {
     }
     let option = resp.data;
 
-    if (mail) {
+    if (resp.mail || mail) {
+        $('#mail').show();
         option.clickToSelect = true;
         option.columns.unshift({checkbox: true});
     }
