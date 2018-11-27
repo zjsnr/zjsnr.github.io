@@ -5,7 +5,7 @@
   encoding: "utf8",
 
   // 每个时间节点最多显示的条目数。
-  max_number: 16,
+  max_number: 30,
 
   // 控制是否显示顶部附加信息文字。
   showMessage: true,
@@ -25,16 +25,19 @@
   divide_by: 'type',
 
   // 字段的值与其对应的颜色值
-  color: {},
+  color: {
+    'iOS':'#d62728',
+    'Andriod':'#2ca02c'
+  },
 
   // 颜色绑定增长率
   changeable_color: false,
 
   // 附加信息内容。
-  itemLabel: "实力值最高",
-  typeLabel: "服务器",
+  itemLabel: "守门员实力最高",
+  typeLabel: "类型",
   // 榜首项目信息的水平位置 。
-  item_x: 300,
+  item_x: 400,
   
   // 时间点间隔时间。
   interval_time: 0.5,
@@ -43,9 +46,9 @@
   text_y: -50,
 
   // 右侧文字横坐标
-  text_x: 600,
+  text_x: 700,
   // 偏移量
-  offset: 200,
+  offset: 150,
 
   // 长度小于display_barInfo的bar将不显示barInfo。
   display_barInfo: 200,
@@ -79,7 +82,7 @@
   enter_from_0: false,
 
   // 如果所有数字都很大，导致拉不开差距则开启此项使得坐标原点变换为（最小值）*2-（最大值）
-  big_value: true,
+  big_value: false,
 
   // 如果要使用半对数坐标，则开启此项
   use_semilogarithmic_coordinate: false,
@@ -94,7 +97,7 @@
 
 $(document).ready(function(){
   $.ajax({
-      url: './resources/power.csv',
+      url: './resources/min_power.csv',
       type: 'GET',
       success: (r)=>draw(d3.csvParse(r))
   });
