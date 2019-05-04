@@ -51,6 +51,11 @@ function alertNoSuchData() {
         $(btn).addClass('btn-danger');
         $(btn).text('?');
     });
+
+    // 按照船只序号排序
+    $('#shipIndex').text('()')
+
+    // Alert
     $('#alert-msg').text('无此数据');
     let alertItem = $('.alert');
     alertItem.removeClass('alert-warning');
@@ -64,13 +69,24 @@ function alertNoSuchData() {
 
 function updateSquence(ans) {
     console.log('update sequence to ' + ans);
-    let ranking = ans.split(',');
+    let roundInfo = ans.split(',');
     foreachGroup(function (index, group) {
         let btn = group.children().filter(':disabled')[0];
-        let text = ranking[index];
+        let text = roundInfo[index];
         $(btn).removeClass('btn-danger');
         $(btn).addClass('btn-success');
         $(btn).text(text == '' ? '_' : text);
     });
     $('.alert').fadeOut(500);
+
+    // 按照船只序号排序
+    let len = ans.split(',').join('');
+    let shipIndexes = new Array(len).fill(null);
+    for (let shipIndex in roundInfo) {
+        let round = roundInfo[shipIndex];
+        shipIndexes[round - 1] = parseInt(shipIndex) + 1;
+    }
+    console.log('按照船只序号排序: ' + shipIndexes);
+    $('#shipIndex').text(shipIndexes.join(','));
+
 }
