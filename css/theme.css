@@ -1,3 +1,24 @@
+@media(min-width: 576px){
+#bargraph-svg{
+    height: 400px;
+    width: 520px;
+}}
+@media(min-width: 768px){
+#bargraph-svg{
+    height: 700px;
+    width: 720px;
+}}
+@media(min-width: 992px){
+#bargraph-svg{
+    height: 900px;
+    width: 920px;
+}}
+@media(min-width: 1200px){
+#bargraph-svg{
+    height: 800px;
+    width: 1120px;
+}}
+
 #nav-container{
   padding-top: 5px;
   padding-bottom: 5px;
