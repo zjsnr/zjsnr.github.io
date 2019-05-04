@@ -1,13 +1,16 @@
 // Add click callback
 $('.btn-outline-dark').click(function (event) {
     let btn = $(event.target);
-    for (let sibling of btn.siblings()) {
-        $(sibling).removeClass('active');
-    }
+
+    btn.siblings().each(function () {
+        $(this).removeClass('active');
+    })
     btn.addClass('active');
+
     recalc();
 })
 
+// global data
 var sequenceData = {};
 
 $(document).ready(function () {
@@ -60,11 +63,8 @@ function alertNoSuchData() {
     let alertItem = $('.alert');
     alertItem.removeClass('alert-warning');
     alertItem.addClass('alert-danger');
-    // alertItem.show();
     alertItem.fadeIn(200);
-    setTimeout(function () {
-        alertItem.fadeOut(500);
-    }, 2000);
+    setTimeout(() => alertItem.fadeOut(500), 2000);
 }
 
 function updateSquence(ans) {
@@ -75,7 +75,7 @@ function updateSquence(ans) {
         let text = roundInfo[index];
         $(btn).removeClass('btn-danger');
         $(btn).addClass('btn-success');
-        $(btn).text(text == '' ? '_' : text);
+        $(btn).text(text || '_');
     });
     $('.alert').fadeOut(500);
 
