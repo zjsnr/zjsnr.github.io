@@ -1,6 +1,5 @@
 // Add click callback
 $('.btn-outline-dark').click(function (event) {
-    EV = event;
     let btn = $(event.target);
     for (let sibling of btn.siblings()) {
         $(sibling).removeClass('active');
