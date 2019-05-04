@@ -13,17 +13,17 @@ for name in ('三射程', '二射程', '缺船炮序'):
         row = table.row_values(i)
 
         shootingRange = row[0:6]
-        ranking = [(int(item) if item else 0) for item in row[6:12]]
+        shipIndexes = [(int(item) if item else 0) for item in row[6:12]]
         shipRanking = [0 for _ in range(6)]
-        for round, shipIndex in enumerate(ranking):
+        for round, shipIndex in enumerate(shipIndexes):
             if shipIndex == 0:
-                continue
+                break
             shipRanking[shipIndex - 1] = round + 1
 
         key = ','.join(shootingRange)
         value = ','.join((str(item) if item else '') for item in shipRanking)
 
-        if key == (',' * 5):
+        if key == (',' * 5): # empty line
             continue
         if key in data:
             raise RuntimeError(f'key {key} in data.')
