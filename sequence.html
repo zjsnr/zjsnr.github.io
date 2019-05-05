@@ -72,23 +72,22 @@
         </div>
     </nav>
 
-
-    <div class="container text-center" role="main">
-
-        <div class="">
-
-            <div id="message">
-                <div class="container" style="padding: 5px;">
-                    <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
-                        <div id="alert-msg">
-                            加载数据中...
-                        </div>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+    <div id="container message row">
+        <div class="container" style="padding: 5px;">
+            <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
+                <div id="alert-msg">
+                    加载数据中...
                 </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+        </div>
+    </div>
+
+    <div class="container row" role="main">
+
+        <div class="col-sm-12 col-md-6 text-center">
 
             <div class="my-2">
                 <p>
@@ -187,6 +186,23 @@
             </div>
 
         </div>
+
+        <div class="col-sm-12 col-md-6">
+
+            <div class="my-2">
+                <p>拖动以排序出手顺序</p>
+            </div>
+
+            <ul id="sortlist" class="list-group my-2">
+                <li class="list-group-item" index="1">1 位船只</li>
+                <li class="list-group-item" index="2">2 位船只</li>
+                <li class="list-group-item" index="3">3 位船只</li>
+                <li class="list-group-item" index="4">4 位船只</li>
+                <li class="list-group-item" index="5">5 位船只</li>
+                <li class="list-group-item" index="6">6 位船只</li>
+            </ul>
+        </div>
+
     </div>
 
     <hr>
@@ -209,6 +225,7 @@
     <script src="//cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="js/common.js"></script>
 
+    <script src="//SortableJS.github.io/Sortable/Sortable.js"></script>
 
     <script src="js/sequence.js"></script>
 </body>

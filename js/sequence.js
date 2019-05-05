@@ -126,3 +126,24 @@ function updateSquence(indexes, ans) {
     $('#shipIndex').text(shipIndexes.join(','));
 
 }
+
+// Reverse related code
+
+function onDragItem(evt) {
+    indexes = []
+    for (let item of $('#sortlist').children()) {
+        indexes.push($(item).attr('index'));
+    }
+    console.log(indexes);
+}
+
+$(document).ready(function () {
+    let el = $('#sortlist').get()[0];
+    let sortable = Sortable.create(el, {
+        anmation: 150,
+        easing: "cubic-bezier(1, 0, 0, 1)",
+        dragoverBubble: true,
+        onChange: onDragItem
+    });
+});
+
