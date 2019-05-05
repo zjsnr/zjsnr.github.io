@@ -27,20 +27,51 @@ function foreachGroup(fn) {
     }
 }
 
+/**
+ * Generate key from ranges, result starts from 0 and ignore empty ranges.
+ */
+function getKeyFromRanges(ranges) {
+    // remove empty ranges
+    ranges = ranges.filter((name) => { return name != '空'; });
+    // map to int
+    ranges = ranges.map((range) => {
+        return {
+            '超长': 4,
+            '长': 3,
+            '中': 2,
+            '短': 1
+        }[range];
+    });
+
+    // generate mapper
+    // remove duplicates
+    let keys = Array.from(new Set(ranges)).sort();
+    let mapper = {};
+    for (let index in keys) {
+        mapper[keys[index]] = index;
+    }
+
+    // map (compress) ranges
+    let mappedRanges = ranges.map((range) => mapper[range]);
+    return mappedRanges.join('');
+}
+
 // Recalc ranking
 function recalc() {
     let selections = [];
     foreachGroup(function (index, group) {
         let btn = group.children().filter('.active')[0];
         let text = $(btn).text().trim();
-        text = text == '空' ? '' : text;
-
         selections.push(text);
     });
-    let key = selections.join(',');
-    console.log(key);
+
+    // let length = selections.filter((range) => { return range != '空'; }).length;
+    let indexes = Array.from(Array(6).keys()).filter(
+        (index) => selections[index] != '空');
+    let key = getKeyFromRanges(selections);
+    console.log('Current key: ' + key);
     if (sequenceData.hasOwnProperty(key)) {
-        updateSquence(sequenceData[key]);
+        updateSquence(indexes, sequenceData[key]);
     } else {
         alertNoSuchData();
     }
@@ -67,15 +98,20 @@ function alertNoSuchData() {
     setTimeout(() => alertItem.fadeOut(500), 2000);
 }
 
-function updateSquence(ans) {
+function updateSquence(indexes, ans) {
     console.log('update sequence to ' + ans);
-    let roundInfo = ans.split(',');
+    let roundInfo = ans.split('');
+    let counter = 0;
     foreachGroup(function (index, group) {
         let btn = group.children().filter(':disabled')[0];
-        let text = roundInfo[index];
+        let text = '_'; // default, for empty shooting range
+        if (indexes[counter] == index) {
+            text = roundInfo[counter];
+            counter++;
+        }
         $(btn).removeClass('btn-danger');
         $(btn).addClass('btn-success');
-        $(btn).text(text || '_');
+        $(btn).text(text);
     });
     $('.alert').fadeOut(500);
 
