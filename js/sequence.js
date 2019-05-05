@@ -120,7 +120,7 @@ function updateSquence(indexes, ans) {
     let shipIndexes = new Array(len).fill(null);
     for (let shipIndex in roundInfo) {
         let round = roundInfo[shipIndex];
-        shipIndexes[round - 1] = parseInt(shipIndex) + 1;
+        shipIndexes[round - 1] = indexes[parseInt(shipIndex)] + 1;
     }
     console.log('按照船只序号排序: ' + shipIndexes);
     $('#shipIndex').text(shipIndexes.join(','));
