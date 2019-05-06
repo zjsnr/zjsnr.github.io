@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+<!-- Block content -->
+{% block content %}
+{{ super() }}
+<div class="container" role="main">
+    <!-- 输入部分 -->
+    <div class="row justify-content-center mt-4">
+        <div class="input-group input-group-lg col-lg-6">
+            <input id="queryInput" type="text" class="form-control" placeholder="输入 用户名 或 UID 查询">
+            <div class="input-group-append">
+                <button id="queryButton" class="btn btn-outline-secondary" type="button">查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center m-3" id="smoothOption" style="display: none;">
+        <div class="col col-lg-6">
+            <div class="row form-row justify-content-center">
+                <div class="col">
+                    <input type="range" class="form-control-range col" min="0.0" max="16.0" step="0.1" value="4.0"
+                        id="sigmaRange">
+                </div>
+                <div class="col-4 col-lg-3">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="smoothPve">
+                        <label class="custom-control-label" for="smoothPve">平滑出征</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chartContainer"></div>
+</div>
+{% endblock %}
+
+{% block body_scripts %}
+{{super()}}
+<script src="js/echarts.common.min.js"></script>
+<script src="js/query.js"></script>
+{% endblock%}

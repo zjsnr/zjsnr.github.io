@@ -8,11 +8,13 @@
 body {
     margin: 0px;
 }
+
 input {
-        position: absolute;   
-        top: 50%;   
-        left: 45%;   
+    position: absolute;
+    top: 50%;
+    left: 45%;
 }
+
 .domain {
     display: none;
 }
@@ -35,17 +37,18 @@ input {
 }
 
 .dateLabel {
-    
+
     fill: rgb(92, 92, 92);
-    display:table-cell;
+    display: table-cell;
     font-size: 60pt;
     font-weight: bold;
     font-family: 'Segoe UI', 'console', Calibri, sans-serif;
 }
+
 .dateLabelRed {
-    
+
     fill: rgb(167, 46, 46);
-    display:table-cell;
+    display: table-cell;
     font-size: 90pt;
     font-weight: bold;
     font-family: 'Segoe UI', 'console', Calibri, sans-serif;
@@ -113,6 +116,7 @@ input {
     font-size: 40pt;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 /* MIKU色 */
 .L {
     fill: #39C5BB
@@ -222,4 +226,3 @@ input {
 .A {
     fill: #cf9237
 }
-

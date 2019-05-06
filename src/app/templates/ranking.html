@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header_style %}
+{{ super() }}
+<link rel="stylesheet" href="css/bootstrap-table.min.css">
+{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+{{ super() }}
+<div class="container" role="main">
+    <!-- 表格部分 -->
+    <div class="row mt-4" id="table-row">
+        <div class="col">
+            <div class="align-items-end">
+                <button type="button" class="btn btn-primary m-2" id="mail">发送举报邮件</button>
+            </div>
+            <table id="table"></table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body_scripts %}
+{{super()}}
+<script src="js/bootstrap-table.min.js"></script>
+<script src="js/ranking.js"></script>
+{% endblock%}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header_style %}
+{{ super() }}
+<link rel="stylesheet" href="css/bargraph.css">
+{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+{{ super() }}
+<div class="container text-center">
+    <svg id="plot" style="width:100%"></svg>
+</div>
+{% endblock %}
+
+<!-- Footer -->
+{% block footer %}
+<hr>
+<footer class="page-footer font-small">
+    <div class="container">
+        <div>
+            Visualization Framework By <a
+                href="//github.com/Jannchie/Historical-ranking-data-visualization-based-on-d3.js">Jannchie</a>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block body_scripts %}
+{{super()}}
+<script src="js/bargraph/draw.js"></script>
+<script src="js/bargraph/min_power.js"></script>
+<script src="//d3js.org/d3.v5.min.js"></script>
+{% endblock%}

@@ -8,7 +8,7 @@
   max_number: 30,
 
   // 控制是否显示顶部附加信息文字。
-  showMessage: true,
+  showMessage: false,
 
   // !!!请确保打开此项时，使用的是标准日期格式！!!(即：YYYY-MM-DD HH:MM)
   // 时间自动排序。
@@ -16,7 +16,7 @@
   // 如果你的日期格式为标准的日期格式，则可以无视数据排序，达到自动按照日期顺序排序的效果。
   // 开启auto_sort可以实现时间的自动补间。
   auto_sort: false,
-  timeFormat : "%Y-%m-%d",
+  timeFormat: "%Y-%m-%d",
 
   // 倒序，使得最短的条位于最上方
   reverse: false,
@@ -26,8 +26,8 @@
 
   // 字段的值与其对应的颜色值
   color: {
-    'iOS':'#d62728',
-    'Andriod':'#2ca02c'
+    'iOS': '#d62728',
+    'Andriod': '#2ca02c'
   },
 
   // 颜色绑定增长率
@@ -38,10 +38,10 @@
   typeLabel: "类型",
   // 榜首项目信息的水平位置 。
   item_x: 400,
-  
+
   // 时间点间隔时间。
   interval_time: 0.5,
-  
+
   // 上方文字水平高度。
   text_y: -50,
 
@@ -91,14 +91,18 @@
   long: false,
 
   // 延迟多少个时间节点开始
-  wait:2
+  wait: 2
 
 };
 
-$(document).ready(function(){
+$(document).ready(function () {
+  let plot = $('#plot');
+  plot.attr('width', plot.width());
+  plot.attr('height', plot.height());
+  console.log('Set plot size: ' + plot.width() + ', ' + plot.height());
   $.ajax({
-      url: './resources/min_power.csv',
-      type: 'GET',
-      success: (r)=>draw(d3.csvParse(r))
+    url: './resources/min_power.csv',
+    type: 'GET',
+    success: (r) => draw(d3.csvParse(r))
   });
 });
