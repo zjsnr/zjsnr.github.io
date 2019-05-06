@@ -1,78 +1,91 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="description" content="没有任何钦点的意思">
-    <meta name="author" content="拒绝查水表委员会">
-    <link rel="icon" href="images/favicon.ico">
-
-    <title> 幺明寺 </title>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/bargraph.css">
-
-    <script src="//d3js.org/d3.v5.min.js"></script>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container" id="nav-container">
-            <a class="navbar-brand" href="#">
-                <strong> 幺明寺 </strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a id="mail-A" class="nav-link" href="index.html"> 出征查询 </a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="mail-B" class="nav-link" href="ranking.html"> 出征排行 </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sequence.html"> 炮序查询 </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="power.html"> 实力可视化</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"> 守门员实力</a>
-                    </li>
-                </ul>
-                <a class="navbar-brand" id="github-icon" href="//github.com/zjsnr/zjsnr.github.io">
-                    <img src="images/blacktocat.png"> GitHub
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <center>
-        <svg width="1260" height="900"></svg>
-        <script src="js/bargraph/draw.js"></script>
-        <script src="js/bargraph/min_power.js"></script>
-    </center>
-
-    <footer class="page-footer font-small">
-        <div class="container">
-            <div>
-                Visualization Framework By <a
-                    href="//github.com/Jannchie/Historical-ranking-data-visualization-based-on-d3.js">Jannchie</a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="没有任何钦点的意思" name="description"/>
+  <meta content="拒绝查水表委员会" name="author"/>
+  <link href="images/favicon.ico" rel="icon"/>
+  <title>
+   幺明寺
+  </title>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/theme.css" rel="stylesheet"/>
+  <link href="css/bargraph.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container" id="nav-container">
+    <a class="navbar-brand" href="#">
+     <strong>
+      幺明寺
+     </strong>
+    </a>
+    <button aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#nav-items" data-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav-items">
+     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+       <a class="nav-link" href="index.html">
+        出征查询
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="ranking.html">
+        出征排行
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="sequence.html">
+        炮序查询
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="power.html">
+        实力排行
+       </a>
+      </li>
+      <li class="nav-item active">
+       <a class="nav-link" href="#">
+        守门员排行
+       </a>
+      </li>
+     </ul>
+     <a class="navbar-brand" href="//github.com/zjsnr/zjsnr.github.io" id="github-icon">
+      <img src="images/blacktocat.png"/>
+      GitHub
+     </a>
+    </div>
+   </div>
+  </nav>
+  <center>
+   <svg height="800" id="bargraph-svg" width="1260">
+   </svg>
+  </center>
+  <hr/>
+  <footer class="page-footer font-small">
+   <div class="container">
+    <div>
+     Visualization Framework By
+     <a href="//github.com/Jannchie/Historical-ranking-data-visualization-based-on-d3.js">
+      Jannchie
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js">
+  </script>
+  <script src="js/bootstrap.min.js">
+  </script>
+  <script src="js/bargraph/draw.js">
+  </script>
+  <script src="js/bargraph/min_power.js">
+  </script>
+  <script src="//d3js.org/d3.v5.min.js">
+  </script>
+ </body>
 </html>

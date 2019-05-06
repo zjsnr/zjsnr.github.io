@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="没有任何钦点的意思">
+    <meta name="author" content="拒绝查水表委员会">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title> 幺明寺 </title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/theme.css" rel="stylesheet">
+    {% block header_style %} {% endblock %}
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    {%- block content %} {% endblock %}
+
+    {%- block footer %} {% endblock %}
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    {%- block body_scripts %} {% endblock %}
+
+</body>
+
+</html>

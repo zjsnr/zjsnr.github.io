@@ -49,18 +49,8 @@ function genTable(resp) {
     $('#table').bootstrapTable(option);
 }
 
-$().ready(function () {
-    let cookie = '' + Cookies.get('history');
-    console.log('cookie = ' + cookie);
-
-    mail = (cookie.indexOf('AABBABAB') >= 0);
-    console.log(mail);
-    if (!mail) {
-        $('#mail').hide();
-    } else {
-        $('#mail').show();
-    }
-
+$(document).ready(function () {
+    $('#mail').show();
 
     $.getJSON(
         'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/?ranking=1',
