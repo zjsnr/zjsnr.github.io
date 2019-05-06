@@ -8,9 +8,9 @@
 <!-- Block content -->
 {% block content %}
 {{ super() }}
-<center>
-    <svg id="bargraph-svg" width="1260" height="800"></svg>
-</center>
+<div class="container text-center">
+    <svg id="plot" style="width:100%"></svg>
+</div>
 {% endblock %}
 
 <!-- Footer -->

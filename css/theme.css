@@ -1,20 +1,20 @@
 @media(min-width: 576px){
-#bargraph-svg{
+#plot{
     height: 400px;
     width: 520px;
 }}
 @media(min-width: 768px){
-#bargraph-svg{
+#plot{
     height: 700px;
     width: 720px;
 }}
 @media(min-width: 992px){
-#bargraph-svg{
+#plot{
     height: 900px;
     width: 920px;
 }}
 @media(min-width: 1200px){
-#bargraph-svg{
+#plot{
     height: 800px;
     width: 1120px;
 }}
@@ -35,8 +35,4 @@
 
 #table-row{
   padding-bottom: 5%;
-}
-
-#mail{
-  display: none
 }
