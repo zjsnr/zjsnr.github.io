@@ -1,3 +1,9 @@
+/**
+ * @CREDIT
+ * enemy data from https://bbs.nga.cn/read.php?tid=16282392
+ * damage formula from https://www.zjsnrwiki.com/wiki/%E6%88%98%E6%96%97%E6%9C%BA%E5%88%B6
+ */
+
 // game related
 const DATA = {
     enemies: {
