@@ -2,7 +2,7 @@
 
 {% block header_style %}
 {{ super() }}
-<link rel="stylesheet" href="css/bargraph.css">
+<link rel="stylesheet" href="static/css/bargraph.css">
 {% endblock %}
 
 <!-- Block content -->
@@ -28,7 +28,7 @@
 
 {% block body_scripts %}
 {{super()}}
-<script src="js/bargraph/draw.js"></script>
-<script src="js/bargraph/power.js"></script>
+<script src="static/js/bargraph/draw.js"></script>
+<script src="static/js/bargraph/power.js"></script>
 <script src="//d3js.org/d3.v5.min.js"></script>
 {% endblock%}

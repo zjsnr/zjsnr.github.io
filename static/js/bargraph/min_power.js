@@ -101,7 +101,7 @@ $(document).ready(function () {
   plot.attr('height', plot.height());
   console.log('Set plot size: ' + plot.width() + ', ' + plot.height());
   $.ajax({
-    url: './resources/min_power.csv',
+    url: 'static/resources/min_power.csv',
     type: 'GET',
     success: (r) => draw(d3.csvParse(r))
   });

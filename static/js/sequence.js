@@ -14,7 +14,7 @@ $('.btn-outline-dark').click(function (event) {
 var sequenceData = {};
 
 $(document).ready(function () {
-    $.getJSON('resources/sequence.json', function (data) {
+    $.getJSON('static/resources/sequence.json', function (data) {
         sequenceData = data;
         recalc();
     });
