@@ -4,7 +4,7 @@ $('.btn-outline-dark').click(function (event) {
 
     btn.siblings().each(function () {
         $(this).removeClass('active');
-    })
+    });
     btn.addClass('active');
 
     recalc();

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block header_style %}
+{{ super() }}
+<style>
+</style>
+{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+{{ super() }}
+<div class="container text-center" role="main">
+    <div class="btn-group my-3" id="map_id">
+        <button class="btn btn-outline-dark active" mapid="8-1">8-1</button>
+        <button class="btn btn-outline-dark" mapid="6-1">6-1</button>
+    </div>
+
+    <div class="row" id="antisub-result">
+        <table class="table table-striped col-8" id="normal-table">
+            <thead class="thread-dark">
+                <tr>
+                    <th scope="col"> 反潜值 </th>
+                    <th scope="col"> 推荐深弹 </th>
+                    <th scope="col"> 推荐声纳 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>无</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>无</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block body_scripts %}
+{{super()}}
+<script src="static/js/anti_sub.js"></script>
+{% endblock%}

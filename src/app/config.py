@@ -12,6 +12,10 @@ pages = (
         'filename': 'sequence.html',
         'nav_name': '炮序查询',
     }, {
+        'name': 'anti_sub',
+        'filename': 'anti_sub.html',
+        'nav_name': '反潜计算'
+    }, {
         'name': 'power',
         'filename': 'power.html',
         'nav_name': '实力排行'
