@@ -68,9 +68,24 @@ function getMinRawAntiForSuit(depthCharge, sonar, broken, enemy) {
 }
 
 function getResultsForEnemyWithBrokenInfo(enemy, broken) {
-    options = [];
-    for (let depthCharge of DATA.depthCharges) {
-        for (let sonar of DATA.sonars) {
+    let options = [];
+
+    let selectItemsActiveInDOM = function (JQ) {
+        return function (jsItem) {
+            return JQ.filter((index, domItem) => (
+                $(domItem).hasClass('active') && $(domItem).text() == jsItem.name
+            )).length != 0;
+        };
+    };
+
+    let allowedDepthCharges = DATA.depthCharges.filter(
+        selectItemsActiveInDOM($('#allowed-depth-charges > .btn-outline-dark')));
+    let allowedSonars = DATA.sonars.filter(
+        selectItemsActiveInDOM($('#allowed-sonars > .btn-outline-dark')));
+
+
+    for (let depthCharge of allowedDepthCharges) {
+        for (let sonar of allowedSonars) {
             let minRawAnti = getMinRawAntiForSuit(depthCharge, sonar, broken, enemy);
             options.push({ "minRawAnti": minRawAnti, "depthCharge": depthCharge, "sonar": sonar });
         }
@@ -92,7 +107,8 @@ function getResultsForEnemy(enemy) {
 
 // html related
 
-$('.btn-outline-dark').click(function (event) {
+// switch map
+$('#map_id > .btn').click(function (event) {
     let btn = $(event.target);
     btn.siblings().each(function () {
         $(this).removeClass('active');
@@ -102,8 +118,25 @@ $('.btn-outline-dark').click(function (event) {
 });
 
 $(document).ready(function () {
+    // allow all items
+    let insertInto = function (btnGroup) {
+        return function (item) {
+            let btn = $('<button></button>');
+            btn.addClass('btn btn-outline-dark active');
+            btn.text(item.name);
+            btn.click(function (event) { // switch equip allowance
+                $(this).toggleClass('active');
+                recalc();
+            });
+            btnGroup.append(btn[0]);
+        };
+    };
+    DATA.depthCharges.map(insertInto($('#allowed-depth-charges')));
+    DATA.sonars.map(insertInto($('#allowed-sonars')));
+    // calc
     recalc();
 })
+
 
 function recalc() {
     const MIN_ANTI_SHOWN = 10;
