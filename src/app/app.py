@@ -21,6 +21,7 @@ def wrap(page):
 
 @app.route('/<string:name>')
 def render(name):
+    name = name.replace('.html', '')
     match = filter(lambda p: p['name'] == name, pages)
     try:
         page = next(match)

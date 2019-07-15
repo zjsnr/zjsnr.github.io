@@ -47,9 +47,6 @@ function calcDamage(rawAnti, depthCharge, sonar, broken, armor) {
     baseAtk = rawAnti / 3.0 + ((depthCharge.value == 0) ? 0 : (depthCharge.value * 1.3 + 30.0));
     atk = baseAtk * kFloat * kSonar * kBroken;
     damage = Math.ceil(atk * (1 - armor / (0.5 * armor + kPenetration * atk)));
-    if (sonar.name == "633鱼雷(3)" && depthCharge.name == "土豆(3)") {
-        console.log("反潜" + rawAnti + "伤害" + damage);
-    }
     return damage;
 }
 
@@ -79,7 +76,7 @@ function getResultsForEnemyWithBrokenInfo(enemy, broken) {
         }
     }
     options.sort((a, b) => (a.minRawAnti - b.minRawAnti));
-    console.log(options);
+    // console.log(options);
     return options
 }
 
@@ -124,7 +121,6 @@ function recalc() {
             if (record.minRawAnti < MIN_ANTI_SHOWN || record.minRawAnti > MAX_ANTI_SHOWN) {
                 return;
             }
-            console.log(record);
             let row = $('<tr></tr>');
             row.append($('<td></td>').text("≥" + record.minRawAnti)[0]);
             row.append($('<td></td>').text(record.depthCharge.name)[0]);
