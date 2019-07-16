@@ -13,10 +13,15 @@
   </title>
   <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="static/css/theme.css" rel="stylesheet"/>
+  <link href="static/css/bootstrap-slider.min.css" rel="stylesheet"/>
   <style>
    td {
         padding-top: 5px !important;
         padding-bottom: 5px !important;
+    }
+
+    #level-filter-slider-id .slider-selection {
+        background: #728080;
     }
   </style>
  </head>
@@ -81,6 +86,15 @@
      6-1
     </button>
    </div>
+   <div id="level-filter">
+    <input data-slider-id="level-filter-slider-id" id="level-filter-slider" type="text"/>
+    <span id="level-filter-text">
+     当前裸反潜:
+     <span id="level-filter-value">
+      10
+     </span>
+    </span>
+   </div>
    <div id="allow-equip">
     <div class="btn-group my-2" id="allowed-depth-charges" style="display:inherit">
      <button class="btn" disabled="">
@@ -93,7 +107,7 @@
      </button>
     </div>
    </div>
-   <div class="row" id="antisub-result">
+   <div class="row my-2" id="antisub-result">
     <table class="table table-striped col-sm-12 col-md-6" id="normal-table">
      <thead class="thread-dark">
       <tr>
@@ -145,6 +159,8 @@
   <script src="static/js/bootstrap.min.js">
   </script>
   <script src="static/js/anti_sub.js">
+  </script>
+  <script src="static/js/bootstrap-slider.min.js">
   </script>
  </body>
 </html>
