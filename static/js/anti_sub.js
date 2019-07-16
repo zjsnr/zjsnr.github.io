@@ -112,6 +112,7 @@ function getResultsForEnemy(enemy) {
 
 
 // html related
+var curAnti = 10;
 
 // switch map
 $('#map_id > .btn').click(function (event) {
@@ -124,6 +125,19 @@ $('#map_id > .btn').click(function (event) {
 });
 
 $(document).ready(function () {
+    // init level filter
+    $("#level-filter-slider").slider({
+        min: 10,
+        max: 110,
+        value: 10,
+        step: 1
+    });
+    $("#level-filter-slider").on("slide", function (event) {
+        $("#level-filter-value").text(event.value);
+        curAnti = event.value;
+        recalc();
+    });
+
     // allow all items
     let insertInto = function (btnGroup) {
         return function (item) {
@@ -132,6 +146,7 @@ $(document).ready(function () {
             btn.text(item.name);
             btn.click(function (event) { // switch equip allowance
                 $(this).toggleClass('active');
+                $(this).blur(); // remove focus
                 recalc();
             });
             btnGroup.append(btn[0]);
@@ -139,10 +154,10 @@ $(document).ready(function () {
     };
     DATA.depthCharges.map(insertInto($('#allowed-depth-charges')));
     DATA.sonars.map(insertInto($('#allowed-sonars')));
+
     // calc
     recalc();
 })
-
 
 function recalc() {
     const MIN_ANTI_SHOWN = 10;
@@ -157,7 +172,7 @@ function recalc() {
     // insert into normal table
     let insertRecordInto = function (tableBody) {
         return function (record) {
-            if (record.minRawAnti < MIN_ANTI_SHOWN || record.minRawAnti > MAX_ANTI_SHOWN) {
+            if (record.minRawAnti < curAnti || record.minRawAnti < MIN_ANTI_SHOWN || record.minRawAnti > MAX_ANTI_SHOWN) {
                 return;
             }
             let row = $('<tr></tr>');

@@ -2,10 +2,15 @@
 
 {% block header_style %}
 {{ super() }}
+<link rel="stylesheet" href="static/css/bootstrap-slider.min.css">
 <style>
     td {
         padding-top: 5px !important;
         padding-bottom: 5px !important;
+    }
+
+    #level-filter-slider-id .slider-selection {
+        background: #728080;
     }
 </style>
 {% endblock %}
@@ -19,6 +24,11 @@
         <button class="btn btn-outline-dark" mapid="6-1">6-1</button>
     </div>
 
+    <div id="level-filter">
+        <input id="level-filter-slider" data-slider-id="level-filter-slider-id" type="text" />
+        <span id="level-filter-text">当前裸反潜: <span id="level-filter-value">10</span> </span>
+    </div>
+
     <div id="allow-equip">
         <div class="btn-group my-2" id="allowed-depth-charges" style="display:inherit">
             <button class="btn" disabled>深弹</button>
@@ -28,7 +38,10 @@
         </div>
     </div>
 
-    <div class="row" id="antisub-result">
+
+
+
+    <div class="row my-2" id="antisub-result">
         <table class="table table-striped col-sm-12 col-md-6" id="normal-table">
             <thead class="thread-dark">
                 <tr>
@@ -65,4 +78,5 @@
 {% block body_scripts %}
 {{super()}}
 <script src="static/js/anti_sub.js"></script>
+<script src="static/js/bootstrap-slider.min.js"></script>
 {% endblock%}
