@@ -25,9 +25,9 @@ def render(name):
     match = filter(lambda p: p['name'] == name, pages)
     try:
         page = next(match)
-        return flask.render_template(page['filename'], pages=pages, curpage=page)
     except:
         flask.abort(404)
+    return flask.render_template(page['filename'], pages=pages, curpage=page)
 
 
 app.run('127.0.0.1', threaded=True, debug=True)
