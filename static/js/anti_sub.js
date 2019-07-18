@@ -25,6 +25,7 @@ const DATA = {
     },
     enemyBoss: {
         "6-1": "pi-4",
+        "7-1": "phi-2",
         "8-1": "phi-2"
     },
     depthCharges: [
