@@ -112,7 +112,7 @@ function getResultsForEnemy(enemy) {
 
 
 // html related
-var curAnti = 10;
+var curAnti = 120;
 
 // switch map
 $('#map_id > .btn').click(function (event) {
@@ -128,8 +128,8 @@ $(document).ready(function () {
     // init level filter
     $("#level-filter-slider").slider({
         min: 10,
-        max: 110,
-        value: 10,
+        max: 120,
+        value: 120,
         step: 1
     });
     $("#level-filter-slider").on("slide", function (event) {
@@ -161,7 +161,7 @@ $(document).ready(function () {
 
 function recalc() {
     const MIN_ANTI_SHOWN = 10;
-    const MAX_ANTI_SHOWN = 110;
+    const MAX_ANTI_SHOWN = 120;
     // get map id first
     let mapid = $('#map_id>button.active').attr('mapid');
     let bossName = DATA.enemyBoss[mapid];
@@ -172,7 +172,7 @@ function recalc() {
     // insert into normal table
     let insertRecordInto = function (tableBody) {
         return function (record) {
-            if (record.minRawAnti < curAnti || record.minRawAnti < MIN_ANTI_SHOWN || record.minRawAnti > MAX_ANTI_SHOWN) {
+            if (record.minRawAnti > curAnti || record.minRawAnti < MIN_ANTI_SHOWN || record.minRawAnti > MAX_ANTI_SHOWN) {
                 return;
             }
             let row = $('<tr></tr>');
