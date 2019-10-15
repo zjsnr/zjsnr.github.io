@@ -1,4 +1,4 @@
-Date.prototype.format = function(format) {
+Date.prototype.format = function (format) {
     /*
     * 使用例子:format="yyyy-MM-dd hh:mm:ss";
     */
@@ -30,12 +30,12 @@ Date.prototype.format = function(format) {
     return format;
 };
 
-Date.prototype.diff = function(t) {
+Date.prototype.diff = function (t) {
     return Math.abs(this.getTime() - t.getTime()) / (24 * 3600 * 1000);
 };
 
 function smooth(array, sigma, val, dt) {
-    var w = function(t) {
+    var w = function (t) {
         if (sigma == 0) {
             return t < 0.001 ? 1 : 0;
         }
@@ -70,11 +70,37 @@ var myChart = null;
 var rawSpeedData = null;
 var rawPveData = null;
 
-$('#queryButton').click(function() {
-    var url =
+
+function saveState(name) {
+    history.pushState({ name: name }, "幺明寺 - " + name, "/index?name=" + name);
+}
+
+// back button
+window.onpopstate = function (e) {
+    let name = e.state.name;
+    console.log("pop state: ", name);
+    $('#queryInput').val(name);
+    getDataAndPlot(name);
+}
+
+// Init: Get name from url and plot
+$(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    let name = urlParams.get("name");
+    if (name) {
+        console.log("Get param from url: ", name);
+        $('#queryInput').val(name);
+        saveState(name);
+        getDataAndPlot(name);
+    }
+});
+
+function getDataAndPlot(name) {
+    let url =
         'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/'
-    url += '?name=' + encodeURIComponent($('#queryInput').val());
-    $.getJSON(url, function(response) {
+    url += '?name=' + name;
+    // get data and plot
+    $.getJSON(url, function (response) {
         if (response.code != 0) {
             alert(response.msg);
             return;
@@ -105,8 +131,8 @@ $('#queryButton').click(function() {
         }
         var speedData = calcSpeed(rawSpeedData, $('#sigmaRange').val());
         var pveData = calcPveData(rawPveData,
-            $("#smoothPve").prop("checked")?
-            1: 0.0);
+            $("#smoothPve").prop("checked") ?
+                1 : 0.0);
         // 作图
         if (!myChart) {
             myChart = echarts.init($('#chartContainer').get(0));
@@ -115,17 +141,17 @@ $('#queryButton').click(function() {
         $("#smoothOption").show();
 
         myChart.setOption({
-            textStyle: {fontSize: 18},
+            textStyle: { fontSize: 18 },
             title: {
                 text: '用户名: ' + response.username + '  UID: ' + response.uid,
                 x: 'center',
                 left: 'center',
             },
-            grid: {bottom: '12%', left: '14%'},
+            grid: { bottom: '12%', left: '14%' },
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {type: 'cross'},
-                formatter: function(params) {
+                axisPointer: { type: 'cross' },
+                formatter: function (params) {
                     var item = params[0];
                     var result = item.data[0].format('yyyy-MM-dd hh:mm:ss') +
                         '</br>' + item.seriesName + ': ' +
@@ -136,12 +162,12 @@ $('#queryButton').click(function() {
                 },
                 backgroundColor: 'rgba(50, 50, 50, 0.2)'
             },
-            legend: {margin: 25, top: 25, data: ['出征', '出征速度']},
+            legend: { margin: 25, top: 25, data: ['出征', '出征速度'] },
             xAxis: {
                 type: 'time',
                 axisPointer: {
                     label: {
-                        formatter: function(params) {
+                        formatter: function (params) {
                             return params.seriesData[0].data[0].format(
                                 'yy-MM-dd\nhh:mm:ss');
                         }
@@ -149,8 +175,8 @@ $('#queryButton').click(function() {
                 }
             },
             yAxis: [
-                {name: '出征', type: 'value', scale: true, padding: 10},
-                {name: '出征/天', type: 'value', smooth: true}
+                { name: '出征', type: 'value', scale: true, padding: 10 },
+                { name: '出征/天', type: 'value', smooth: true }
             ],
             dataZoom: [{
                 id: 'dataZoomX',
@@ -160,57 +186,67 @@ $('#queryButton').click(function() {
             }],
             series: [
                 {
-                  name: '出征',
-                  type: 'line',
-                  yAxisIndex: 0,
-                  data: pveData,
-                  itemStyle: {
-                      normal: {
-                          color: '#0099CC',  //圈圈的颜色
-                          lineStyle: {
-                              color: '#0099CC'  //线的颜色
-                          }
-                      }
-                  }
+                    name: '出征',
+                    type: 'line',
+                    yAxisIndex: 0,
+                    data: pveData,
+                    itemStyle: {
+                        normal: {
+                            color: '#0099CC',  //圈圈的颜色
+                            lineStyle: {
+                                color: '#0099CC'  //线的颜色
+                            }
+                        }
+                    }
                 },
                 {
-                  name: '出征速度',
-                  type: 'line',
-                  yAxisIndex: 1,
-                  data: speedData,
-                  itemStyle: {
-                      normal: {
-                          color: '#FF6666',  //圈圈的颜色
-                          lineStyle: {
-                              color: '#FF6666'  //线的颜色
-                          }
-                      }
-                  }
+                    name: '出征速度',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    data: speedData,
+                    itemStyle: {
+                        normal: {
+                            color: '#FF6666',  //圈圈的颜色
+                            lineStyle: {
+                                color: '#FF6666'  //线的颜色
+                            }
+                        }
+                    }
                 }
             ]
         });
         window.onresize = myChart.resize;
     });
-});
+}
 
-$('#queryInput').keypress(function(e) {
+// bind query button click
+$('#queryButton').click(function () {
+    let name = $('#queryInput').val();
+    saveState(name);
+    getDataAndPlot(name);
+});
+// bind enter key
+$('#queryInput').keypress(function (e) {
     if (e.keyCode == 13) {
         $('#queryButton').click();
     }
 });
 
-function replot(){
+// update without data changing
+function replot() {
     if (rawSpeedData) {
         myChart.setOption({
             series: [
-                {yAxisIndex: 0, data: calcPveData(rawPveData,
-                    $("#smoothPve").prop("checked")?
-                    1: 0.0)},
-                {yAxisIndex: 1, data: calcSpeed(rawSpeedData, $('#sigmaRange').val())}
+                {
+                    yAxisIndex: 0, data: calcPveData(rawPveData,
+                        $("#smoothPve").prop("checked") ?
+                            1 : 0.0)
+                },
+                { yAxisIndex: 1, data: calcSpeed(rawSpeedData, $('#sigmaRange').val()) }
             ]
         });
     }
-};
+}
 
 $('#sigmaRange').on('input propertychange', replot);
 
