@@ -6,8 +6,8 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/build',
-    name: 'build',
+    path: '/',
+    name: 'index',
     component: Build
   }
 ]

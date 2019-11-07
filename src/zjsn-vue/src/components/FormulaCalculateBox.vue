@@ -92,7 +92,6 @@ export default {
       let newFormula = {
         A: last.A, B: last.B, C: last.C, D: last.D
       }
-      // let newFormula = [30, 30, 30, 30]
       app.formulas.push(newFormula)
     },
     removeGroup (index) {
@@ -141,11 +140,4 @@ export default {
   text-align: center;
   margin: auto;
 }
-.inline {
-  display: inline;
-}
-div.formula-input {
-  display: inline
-}
-
 </style>
