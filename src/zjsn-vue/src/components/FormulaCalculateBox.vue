@@ -16,12 +16,14 @@
         </div>
       </i-col>
     </Row>
-    <Button
-      v-if="formulas.length < 4"
-      type="primary" shape="circle" style="margin-top: 4px"
-      icon="md-add" @click="addGroup">
-      Add
-    </Button>
+    <div v-if="formulas.length < 4">
+      <Button
+        v-for="index in [0, 1, 2, 3]" :key="addButtonID(index)"
+        type="primary" shape="circle" style="margin-top: 4px"
+        icon="md-add" @click="addToNext(index)">
+        {{ addButtonText(index) }}
+      </Button>
+    </div>
     <Divider/>
     <Row>
       <i-col :span="colSpan" v-for="(formula, index) in formulas" :key="showBoxID(index)">
@@ -58,7 +60,8 @@ export default {
         C: 120,
         D: 120
       }],
-      rules: []
+      rules: [],
+      options: null
     }
   },
   mounted () {
@@ -67,6 +70,21 @@ export default {
       .get('./buildRules.json')
       .then(function (res) {
         app.rules = res.data
+        // init options
+        app.options = [new Set(), new Set(), new Set(), new Set()]
+        for (const rule of app.rules) {
+          for (const index in [0, 1, 2, 3]) {
+            app.options[index].add(
+              rule.min.ABCD[index])
+            if (rule.max != null && rule.max.ABCD[index] != null) {
+              app.options[index].add(
+                rule.max.ABCD[index])
+            }
+          }
+        }
+        for (const index in app.options) {
+          app.options[index] = [...app.options[index]].sort((a, b) => (a - b))
+        }
       })
   },
   computed: {
@@ -86,17 +104,64 @@ export default {
     showBoxID (id) {
       return 'showbox' + id
     },
+    addButtonID (id) {
+      return 'add' + id
+    },
     addGroup () {
       const app = this
-      let last = app.formulas[app.formulas.length - 1]
+      let formula = app.formulas[app.formulas.length - 1]
       let newFormula = {
-        A: last.A, B: last.B, C: last.C, D: last.D
+        A: formula.A, B: formula.B, C: formula.C, D: formula.D
       }
+      app.formulas.push(newFormula)
+    },
+    _updateFormula (index, value) {
+      const app = this
+      const formula = app.formulas[0]
+      let newFormula = {
+        A: formula.A, B: formula.B, C: formula.C, D: formula.D
+      }
+      newFormula['ABCD'[index]] = value
+      return newFormula
+    },
+    addToNext (index) {
+      const app = this
+      const options = app.getUpgradeOptions()
+      let newFormula = app._updateFormula(index, options[index])
       app.formulas.push(newFormula)
     },
     removeGroup (index) {
       const app = this
       app.formulas.splice(index, 1)
+    },
+    getUpgradeOptions () {
+      const app = this
+      if (app.options === null) {
+        return [120, 120, 120, 120]
+      }
+      const formula = app.formulas[0]
+      const nexts = [0, 1, 2, 3].map(function (index) {
+        return app.options[index].find(function (x) {
+          if (x <= formula['ABCD'[index]]) {
+            return false
+          }
+          const oldCids = new Set(
+            app.calculateShips(formula).map(s => s.cid))
+          const newCids = new Set(
+            app.calculateShips(app._updateFormula(index, x)).map(s => s.cid))
+          const identical = (oldCids.size === newCids.size) &&
+            [...oldCids].every(x => newCids.has(x))
+          if (identical) {
+            return false
+          }
+          return true
+        })
+      })
+      return nexts
+    },
+    addButtonText (index) {
+      const options = this.getUpgradeOptions()
+      return ['油', '弹', '钢', '铝'][index] + '→' + options[index]
     },
     calculateShips (formula) {
       return calculateShipsForFormula(

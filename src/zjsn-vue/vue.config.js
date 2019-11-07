@@ -1,4 +1,5 @@
 module.exports = {
   publicPath: '/build',
-  outputDir: 'build'
+  outputDir: 'build',
+  productionSourceMap: false
 }
