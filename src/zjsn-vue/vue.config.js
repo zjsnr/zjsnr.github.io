@@ -1,3 +1,4 @@
 module.exports = {
-  publicPath: '/build'
+  publicPath: '/build',
+  outputDir: 'build'
 }

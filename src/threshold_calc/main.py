@@ -107,16 +107,16 @@ def calcMin(data):
 
 def verifyRule(type_, record, rule_ABCD):
     "Return if rule is satisfied"
-    satisfy = (
-        record[i] <= rule_ABCD[i]
+    singleBreak = (
+        rule_ABCD[i] <= record[i]
         for i in range(4)
         if rule_ABCD[i] is not None)
     if type_ == 'and':  # allow one breaks
         # so any satisfied makes result satisfied
-        return any(satisfy)
+        return not all(singleBreak)
     elif type_ == 'or':  # any breaks breaks all
         # must satisfy all
-        return all(satisfy)
+        return not any(singleBreak)
     else:
         raise RuntimeError()
 
@@ -128,7 +128,6 @@ def verifyMax(data, rule, shipID, shipName):
             "ABCD": []
         }
     """
-
     for item in data:
         record = [item[A], item[B], item[C], item[D]]
         satisfied = verifyRule(
@@ -155,7 +154,7 @@ def main():
     table = workbook.sheet_by_name('threshold')
 
     START = 1
-    # START = 11
+    # START = 150
 
     rules = []
 
@@ -198,6 +197,7 @@ def main():
             },
             'max': max_rule
         })
+        # input()
 
     with Path('rules.json').open('w', encoding='utf8') as f:
         json.dump(rules, f, ensure_ascii=False, indent=2)
