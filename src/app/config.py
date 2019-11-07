@@ -16,6 +16,9 @@ pages = (
         'filename': 'anti_sub.html',
         'nav_name': '反潜计算'
     }, {
+        'name': 'build',
+        'nav_name': '建造公式计算'
+    }, {
         'name': 'power',
         'filename': 'power.html',
         'nav_name': '实力排行'

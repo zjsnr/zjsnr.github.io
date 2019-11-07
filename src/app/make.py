@@ -17,14 +17,15 @@ def main():
         loader=jinja2.FileSystemLoader(str(templatesPath)))
 
     for page in pages:
-        template = env.get_template(page['filename'])
-        rendered = template.render(
-            pages=pages,
-            curpage=page
-        )
-        text = BeautifulSoup(rendered, 'html.parser').prettify()
-        with (outputPath / page['filename']).open('w', encoding='utf8') as f:
-            f.write(text)
+        if 'filename' in page:
+            template = env.get_template(page['filename'])
+            rendered = template.render(
+                pages=pages,
+                curpage=page
+            )
+            text = BeautifulSoup(rendered, 'html.parser').prettify()
+            with (outputPath / page['filename']).open('w', encoding='utf8') as f:
+                f.write(text)
 
 
 if __name__ == "__main__":
