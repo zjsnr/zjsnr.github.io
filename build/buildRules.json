@@ -1474,6 +1474,36 @@
   },
   {
     "shipType": "CA",
+    "shipName": "旧金山",
+    "star": 4,
+    "shipCid": 10024012,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "阿尔及利亚",
+    "star": 4,
+    "shipCid": 10024612,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
     "shipName": "奥古斯塔",
     "star": 4,
     "shipCid": 10032912,
@@ -1504,21 +1534,6 @@
   },
   {
     "shipType": "CA",
-    "shipName": "阿尔及利亚",
-    "star": 4,
-    "shipCid": 10024612,
-    "min": {
-      "ABCD": [
-        350,
-        30,
-        300,
-        30
-      ]
-    },
-    "max": null
-  },
-  {
-    "shipType": "CA",
     "shipName": "欧根亲王",
     "star": 5,
     "shipCid": 10003812,
@@ -1537,6 +1552,21 @@
     "shipName": "巴尔的摩",
     "star": 5,
     "shipCid": 10024112,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        350,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "得梅因",
+    "star": 6,
+    "shipCid": 10024312,
     "min": {
       "ABCD": [
         400,
@@ -1996,6 +2026,29 @@
         null,
         600,
         201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "克利夫兰",
+    "star": 4,
+    "shipCid": 10025212,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        200
       ]
     }
   },
@@ -2854,6 +2907,29 @@
     "shipName": "恩格斯",
     "star": 4,
     "shipCid": 10019311,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "时雨",
+    "star": 4,
+    "shipCid": 10026211,
     "min": {
       "ABCD": [
         90,
