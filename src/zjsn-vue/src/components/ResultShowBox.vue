@@ -2,7 +2,7 @@
   <div class="result-show-box" style="text-align:center">
     <div v-if="ships.length">
       <Button
-        v-for="ship in ships"
+        v-for="ship in sortedShips"
         :key="ship.shipCid"
         shape="circle"
         :style="style(ship.star)"
@@ -10,7 +10,7 @@
       />
     </div>
     <div v-else>
-      <Button>None</Button>
+      <Button shape="circle" type="dashed">None</Button>
     </div>
   </div>
 </template>
@@ -25,6 +25,16 @@ export default {
   },
   components: {
     Button
+  },
+  computed: {
+    sortedShips () {
+      const app = this
+      return app.ships.sort(
+        function (a, b) {
+          return a.star - b.star
+        }
+      )
+    }
   },
   methods: {
     style (star) {
