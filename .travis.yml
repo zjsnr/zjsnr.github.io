@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get install -y nodejs-dev node-gyp libssl1.0-dev
   - sudo apt-get install -y nodejs npm
 install:
-  - pip install -r requirement.txt
+  - pip install -r requirements.txt
   - cd src/zjsn-vue && npm install && cd ../..
 script:
   - make
