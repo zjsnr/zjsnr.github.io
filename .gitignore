@@ -3,3 +3,6 @@ venv
 
 .vscode
 __*
+
+# buildouts
+build/

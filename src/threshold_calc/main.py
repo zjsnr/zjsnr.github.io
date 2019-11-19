@@ -1,9 +1,9 @@
+import os
 from pathlib import Path
 import json
 import math
 import collections
 from operator import itemgetter
-from matplotlib import pyplot as plt
 
 import requests
 import xlrd
@@ -13,6 +13,7 @@ B = 'ammo'
 C = 'steel'
 D = 'al'
 
+Path('cache').mkdir(exist_ok=True)
 
 def nameToLongCid(name: str):
     path = Path('cache') / 'convert.json'
@@ -142,6 +143,7 @@ def verifyMax(data, rule, shipID, shipName):
 
 
 def plotData(data, rule):
+    from matplotlib import pyplot as plt
     for item in data:
         record = [item[A], item[B], item[C], item[D]]
         s = math.log(0.1 + item['C']) * 2
@@ -152,6 +154,9 @@ def plotData(data, rule):
 def main():
     workbook = xlrd.open_workbook('threshold.xlsx')
     table = workbook.sheet_by_name('threshold')
+
+    verify = bool(int(os.environ['VERIFY']))
+    print('Verify: ', verify)
 
     START = 1
     # START = 150
@@ -172,20 +177,21 @@ def main():
             'type': max_type,
             'ABCD': max_ABCD
         } if max_type else None
-        print(f'verify ship {shipName}({longCid})')
 
-        data = getBuildData(longCid)
+        if verify:
+            print(f'verify ship {shipName}({longCid})')
+            data = getBuildData(longCid)
 
-        _min = calcMin(data)
-        if _min != min_ABCD:
-            print(f'[WARNING] min: jianrmod {_min}, excel: {min_ABCD}')
-        else:
-            print('min formula matched.')
+            _min = calcMin(data)
+            if _min != min_ABCD:
+                print(f'[WARNING] min: jianrmod {_min}, excel: {min_ABCD}')
+            else:
+                print('min formula matched.')
 
-        if max_rule:
-            # plotData(data, max_rule)
-            verifyMax(data, max_rule, longCid, shipName)
-        # return
+            if max_rule:
+                # plotData(data, max_rule)
+                verifyMax(data, max_rule, longCid, shipName)
+            # return
 
         rules.append({
             'shipType': shipType,

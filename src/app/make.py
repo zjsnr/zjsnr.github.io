@@ -8,8 +8,10 @@ from config import pages
 
 curPath = Path(__file__).absolute().parent
 templatesPath = curPath / 'templates'
-outputPath = curPath.parent.parent
+rootPath = curPath.parent.parent
+outputPath = rootPath / os.environ['OUTPUT_PATH']
 
+outputPath.mkdir(exist_ok=True)
 
 def main():
     'Render pages'
