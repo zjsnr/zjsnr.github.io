@@ -1,0 +1,5 @@
+jinja2
+# build formula 
+requests
+xlrd
+bs4

@@ -25,8 +25,7 @@ const DATA = {
     },
     enemyBoss: {
         "6-1": "pi-4",
-        "7-1": "phi-2",
-        "8-1": "phi-2"
+        "7-1/8-1/8-2": "phi-2"
     },
     depthCharges: [
         { name: "无", value: 0 },
