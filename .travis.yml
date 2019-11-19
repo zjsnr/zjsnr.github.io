@@ -1,0 +1,25 @@
+language: python
+python: 3.7
+os: linux
+dist: bionic
+sudo: true
+before_install:
+  - sudo apt update
+  - sudo apt install -y nodejs npm
+install:
+  - pip install -r requirement.txt --user
+  - cd src/zjsn-vue && npm install && cd ../..
+script:
+  - make
+
+branches:
+  except:
+    - master
+deploy:
+  provider: pages
+  github_token: $GITHUB_TOKEN
+  skip_cleanup: true
+  on:
+    branch: src
+  local_dir: build
+  target_branch: master
