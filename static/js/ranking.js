@@ -19,6 +19,9 @@ function genTable(resp) {
         let now = new Date();
         let maxT = new Date(item.maxT * 1000);
         let minT = new Date(item.minT * 1000);
+        
+        item.username = '<a href="' + 'index?name=' + item.username + '">' + item.username + '</a>';
+
         if ((now - maxT) > (24 * 3600 * 1000)) {
             // 可能不在榜上了
             item.username += '<span class="badge badge-info">下榜</span>';
