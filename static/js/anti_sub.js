@@ -22,10 +22,12 @@ const DATA = {
         "phi-2": { hp: 40, armor: 34, level: 61 },
         "phi-3": { hp: 48, armor: 40, level: 75 },
         "phi-4": { hp: 56, armor: 46, level: 89 },
+        "SS U Class": { hp: 74, armor: 65, level: 95 },
     },
     enemyBoss: {
         "6-1": "pi-4",
-        "7-1/8-1/8-2": "phi-2"
+        "7-1/8-1/8-2": "phi-2",
+        "Valkyrie-E7": "SS U Class"
     },
     depthCharges: [
         { name: "无", value: 0 },
