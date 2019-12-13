@@ -36,13 +36,15 @@ const DATA = {
         { name: "紫弹(8)", value: 8 },
         { name: "捕鼠(9)", value: 9 },
         { name: "先进(10)", value: 10 },
-        { name: "刺猬(15)", value: 15 }
+        { name: "刺猬(15)", value: 15 },
+        { name: "双刺猬(30)", value: 30, default_off: true },
     ],
     sonars: [
         { name: "无", value: 0 },
         { name: "633鱼雷(3)", value: 3 },
         { name: "绿声纳(6)", value: 6 },
-        { name: "紫声纳(10)", value: 10 }
+        { name: "紫声纳(10)", value: 10 },
+        { name: "金声纳(12)", value: 12, default_off: true }
     ]
 };
 
@@ -144,7 +146,12 @@ $(document).ready(function () {
     let insertInto = function (btnGroup) {
         return function (item) {
             let btn = $('<button></button>');
-            btn.addClass('btn btn-outline-dark active');
+            btn.addClass('btn btn-outline-dark');
+            if (item.default_off) {
+                // default off
+            } else {
+                btn.addClass('active')
+            }
             btn.text(item.name);
             btn.click(function (event) { // switch equip allowance
                 $(this).toggleClass('active');
