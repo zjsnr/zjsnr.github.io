@@ -44,7 +44,8 @@ const DATA = {
         { name: "633鱼雷(3)", value: 3 },
         { name: "绿声纳(6)", value: 6 },
         { name: "紫声纳(10)", value: 10 },
-        { name: "金声纳(12)", value: 12, default_off: true }
+        { name: "金声纳(12)", value: 12, default_off: true },
+        { name: "双紫声纳(20)", value: 20, default_off: true },
     ]
 };
 
