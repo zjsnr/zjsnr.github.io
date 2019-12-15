@@ -56,7 +56,7 @@ $(document).ready(function () {
     $('#mail').show();
 
     $.getJSON(
-        'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/?ranking=1',
+        'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/v2/ranking',
         genTable);
 });
 

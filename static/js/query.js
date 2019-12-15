@@ -95,127 +95,134 @@ $(function () {
     }
 });
 
-function getDataAndPlot(name) {
-    let url =
-        'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/query/'
-    url += '?name=' + name;
-    // get data and plot
-    $.getJSON(url, function (response) {
-        if (response.code != 0) {
-            alert(response.msg);
-            return;
-        }
-        var data = response.data;
-        for (item of data) {
-            item.dt = new Date(item.ts * 1000);
-        }
-        // 分离数据、计算实时速度
-        rawPveData = [];
-        rawSpeedData = [];
-        for (index in data) {
-            rawPveData.push({
-                t: data[index].dt,
-                pve: data[index].pve
-            });
-            if (index > 0) {
-                var now = data[index].dt;
-                var last = data[index - 1].dt;
-                rawSpeedData.push({
-                    t: new Date((now.getTime() + last.getTime()) / 2),
-                    dPve: data[index].pve - data[index - 1].pve,
-                    dT: now.diff(last),
-                    speed:
-                        (data[index].pve - data[index - 1].pve) / now.diff(last)
-                });
-            }
-        }
-        var speedData = calcSpeed(rawSpeedData, $('#sigmaRange').val());
-        var pveData = calcPveData(rawPveData,
-            $("#smoothPve").prop("checked") ?
-                1 : 0.0);
-        // 作图
-        if (!myChart) {
-            myChart = echarts.init($('#chartContainer').get(0));
-        }
-
-        $("#smoothOption").show();
-
-        myChart.setOption({
-            textStyle: { fontSize: 18 },
-            title: {
-                text: '用户名: ' + response.username + '  UID: ' + response.uid,
-                x: 'center',
-                left: 'center',
-            },
-            grid: { bottom: '12%', left: '14%' },
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: { type: 'cross' },
-                formatter: function (params) {
-                    var item = params[0];
-                    var result = item.data[0].format('yyyy-MM-dd hh:mm:ss') +
-                        '</br>' + item.seriesName + ': ' +
-                        item.data[1].toFixed(0);
-                    result = '<font color="' + item.color + '">' + result +
-                        '</font>';
-                    return result
-                },
-                backgroundColor: 'rgba(50, 50, 50, 0.2)'
-            },
-            legend: { margin: 25, top: 25, data: ['出征', '出征速度'] },
-            xAxis: {
-                type: 'time',
-                axisPointer: {
-                    label: {
-                        formatter: function (params) {
-                            return params.seriesData[0].data[0].format(
-                                'yy-MM-dd\nhh:mm:ss');
-                        }
-                    }
-                }
-            },
-            yAxis: [
-                { name: '出征', type: 'value', scale: true, padding: 10 },
-                { name: '出征/天', type: 'value', smooth: true }
-            ],
-            dataZoom: [{
-                id: 'dataZoomX',
-                type: 'slider',
-                xAxisIndex: [0],
-                filterMode: 'filter',
-            }],
-            series: [
-                {
-                    name: '出征',
-                    type: 'line',
-                    yAxisIndex: 0,
-                    data: pveData,
-                    itemStyle: {
-                        normal: {
-                            color: '#0099CC',  //圈圈的颜色
-                            lineStyle: {
-                                color: '#0099CC'  //线的颜色
-                            }
-                        }
-                    }
-                },
-                {
-                    name: '出征速度',
-                    type: 'line',
-                    yAxisIndex: 1,
-                    data: speedData,
-                    itemStyle: {
-                        normal: {
-                            color: '#FF6666',  //圈圈的颜色
-                            lineStyle: {
-                                color: '#FF6666'  //线的颜色
-                            }
-                        }
-                    }
-                }
-            ]
+function onData(response) {
+    if (!response.success) {
+        alert(response.msg);
+        return;
+    }
+    var data = response.data.pveData;
+    for (item of data) {
+        item.dt = new Date(item.ts * 1000);
+    }
+    // 分离数据、计算实时速度
+    rawPveData = [];
+    rawSpeedData = [];
+    for (index in data) {
+        rawPveData.push({
+            t: data[index].dt,
+            pve: data[index].pve
         });
-        window.onresize = myChart.resize;
+        if (index > 0) {
+            var now = data[index].dt;
+            var last = data[index - 1].dt;
+            rawSpeedData.push({
+                t: new Date((now.getTime() + last.getTime()) / 2),
+                dPve: data[index].pve - data[index - 1].pve,
+                dT: now.diff(last),
+                speed:
+                    (data[index].pve - data[index - 1].pve) / now.diff(last)
+            });
+        }
+    }
+    var speedData = calcSpeed(rawSpeedData, $('#sigmaRange').val());
+    var pveData = calcPveData(rawPveData,
+        $("#smoothPve").prop("checked") ?
+            1 : 0.0);
+    // 作图
+    if (!myChart) {
+        myChart = echarts.init($('#chartContainer').get(0));
+    }
+
+    $("#smoothOption").show();
+
+    myChart.setOption({
+        textStyle: { fontSize: 18 },
+        title: {
+            text: '用户名: ' + response.data.username + '  UID: ' + response.data.uid,
+            x: 'center',
+            left: 'center',
+        },
+        grid: { bottom: '12%', left: '14%' },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { type: 'cross' },
+            formatter: function (params) {
+                var item = params[0];
+                var result = item.data[0].format('yyyy-MM-dd hh:mm:ss') +
+                    '</br>' + item.seriesName + ': ' +
+                    item.data[1].toFixed(0);
+                result = '<font color="' + item.color + '">' + result +
+                    '</font>';
+                return result
+            },
+            backgroundColor: 'rgba(50, 50, 50, 0.2)'
+        },
+        legend: { margin: 25, top: 25, data: ['出征', '出征速度'] },
+        xAxis: {
+            type: 'time',
+            axisPointer: {
+                label: {
+                    formatter: function (params) {
+                        return params.seriesData[0].data[0].format(
+                            'yy-MM-dd\nhh:mm:ss');
+                    }
+                }
+            }
+        },
+        yAxis: [
+            { name: '出征', type: 'value', scale: true, padding: 10 },
+            { name: '出征/天', type: 'value', smooth: true }
+        ],
+        dataZoom: [{
+            id: 'dataZoomX',
+            type: 'slider',
+            xAxisIndex: [0],
+            filterMode: 'filter',
+        }],
+        series: [
+            {
+                name: '出征',
+                type: 'line',
+                yAxisIndex: 0,
+                data: pveData,
+                itemStyle: {
+                    normal: {
+                        color: '#0099CC',  //圈圈的颜色
+                        lineStyle: {
+                            color: '#0099CC'  //线的颜色
+                        }
+                    }
+                }
+            },
+            {
+                name: '出征速度',
+                type: 'line',
+                yAxisIndex: 1,
+                data: speedData,
+                itemStyle: {
+                    normal: {
+                        color: '#FF6666',  //圈圈的颜色
+                        lineStyle: {
+                            color: '#FF6666'  //线的颜色
+                        }
+                    }
+                }
+            }
+        ]
+    });
+    window.onresize = myChart.resize;
+}
+
+function getDataAndPlot(name) {
+    const url = 'https://1596403937898061.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/zjsnr/v2/pve/' + name
+    // get data and plot
+    $.ajax({
+        url: url,
+        dataType: 'json',
+        success: onData,
+        error: function (data) {
+            alert(data.responseJSON.msg);
+        }
     });
 }
 
