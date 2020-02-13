@@ -72,8 +72,9 @@ $('#mail').click(function () {
 
     let body = '';
     selections.forEach(item => {
-        let para =
-            '用户名: ' + item.username.replace(/<span.*\/span>/g, '') + '\n';
+        let username = item.username.replace(/<span.*\/span>/g, '');
+        username = username.replace(/<.*?>/g, '');
+        let para = '用户名: ' + username + '\n';
         para += '服务器: ' + item.serverName + '\n';
         para += 'UID: ' + item.uid + '\n';
         para += '该用户近' + Math.floor(item.lenT) + '日日均出征在' +
