@@ -1,5 +1,5 @@
 jinja2
 # build formula 
 requests
-xlrd
+xlrd==1.2.0
 bs4
