@@ -1,0 +1,38 @@
+@media(min-width: 576px){
+#plot{
+    height: 400px;
+    width: 520px;
+}}
+@media(min-width: 768px){
+#plot{
+    height: 700px;
+    width: 720px;
+}}
+@media(min-width: 992px){
+#plot{
+    height: 900px;
+    width: 920px;
+}}
+@media(min-width: 1200px){
+#plot{
+    height: 800px;
+    width: 1120px;
+}}
+
+#nav-container{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#github-icon{
+  vertical-align: bottom
+}
+
+#chartContainer {
+  height: 600px;
+  margin-top: 10px;
+}
+
+#table-row{
+  padding-bottom: 5%;
+}

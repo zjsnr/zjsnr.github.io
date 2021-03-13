@@ -1,0 +1,3599 @@
+[
+  {
+    "shipType": "BC",
+    "shipName": "声望",
+    "star": 3,
+    "shipCid": 10001813,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        500,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BC",
+    "shipName": "格奈森瑙",
+    "star": 4,
+    "shipCid": 10011513,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        500,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BC",
+    "shipName": "星座",
+    "star": 4,
+    "shipCid": 10036213,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        500,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BC",
+    "shipName": "阿拉斯加",
+    "star": 5,
+    "shipCid": 10002013,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        500,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BC",
+    "shipName": "关岛",
+    "star": 5,
+    "shipCid": 10002113,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        500,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BC",
+    "shipName": "毛奇",
+    "star": 5,
+    "shipCid": 10031813,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        500,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BC",
+    "shipName": "无比",
+    "star": 6,
+    "shipCid": 10033113,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        500,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "山城",
+    "star": 3,
+    "shipCid": 10000313,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "日向",
+    "star": 3,
+    "shipCid": 10000513,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "田纳西",
+    "star": 3,
+    "shipCid": 10010613,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "加利福尼亚",
+    "star": 3,
+    "shipCid": 10010713,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "伊丽莎白女王",
+    "star": 3,
+    "shipCid": 10020313,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "罗德尼",
+    "star": 4,
+    "shipCid": 10000913,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "科罗拉多",
+    "star": 4,
+    "shipCid": 10010813,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "马里兰",
+    "star": 4,
+    "shipCid": 10010913,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "西弗吉尼亚",
+    "star": 4,
+    "shipCid": 10011013,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "俾斯麦",
+    "star": 5,
+    "shipCid": 10000613,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "提尔比茨",
+    "star": 5,
+    "shipCid": 10000713,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "安德烈亚·多利亚",
+    "star": 5,
+    "shipCid": 10001313,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "前卫",
+    "star": 5,
+    "shipCid": 10010513,
+    "min": {
+      "ABCD": [
+        400,
+        80,
+        650,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "华盛顿",
+    "star": 5,
+    "shipCid": 10011113,
+    "min": {
+      "ABCD": [
+        400,
+        80,
+        650,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "维内托",
+    "star": 5,
+    "shipCid": 10011213,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "黎塞留",
+    "star": 5,
+    "shipCid": 10011313,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "约克公爵",
+    "star": 5,
+    "shipCid": 10020513,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "北卡罗来纳",
+    "star": 5,
+    "shipCid": 10020613,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "南达科他",
+    "star": 5,
+    "shipCid": 10020713,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "罗马",
+    "star": 5,
+    "shipCid": 10021313,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "苏联",
+    "star": 5,
+    "shipCid": 10021413,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "敦刻尔克",
+    "star": 5,
+    "shipCid": 10021613,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "斯特拉斯堡",
+    "star": 5,
+    "shipCid": 10021713,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "英王乔治五世",
+    "star": 5,
+    "shipCid": 10030513,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "狮",
+    "star": 6,
+    "shipCid": 10010013,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        650,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "兴登堡",
+    "star": 6,
+    "shipCid": 10020013,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "密苏里",
+    "star": 6,
+    "shipCid": 10020913,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        650,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "威斯康星",
+    "star": 6,
+    "shipCid": 10034513,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "BB",
+    "shipName": "圣乔治",
+    "star": 6,
+    "shipCid": 10038013,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        600,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        null,
+        null,
+        null,
+        300
+      ]
+    }
+  },
+  {
+    "shipType": "CVL",
+    "shipName": "兰利",
+    "star": 3,
+    "shipCid": 10002712,
+    "min": {
+      "ABCD": [
+        250,
+        30,
+        300,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CVL",
+    "shipName": "普林斯顿",
+    "star": 3,
+    "shipCid": 10012612,
+    "min": {
+      "ABCD": [
+        250,
+        30,
+        300,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CVL",
+    "shipName": "飞鹰",
+    "star": 3,
+    "shipCid": 10022712,
+    "min": {
+      "ABCD": [
+        250,
+        30,
+        300,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CVL",
+    "shipName": "隼鹰",
+    "star": 3,
+    "shipCid": 10022812,
+    "min": {
+      "ABCD": [
+        250,
+        30,
+        300,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CVL",
+    "shipName": "瑞凤",
+    "star": 4,
+    "shipCid": 10002512,
+    "min": {
+      "ABCD": [
+        250,
+        30,
+        300,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CVL",
+    "shipName": "龙骧",
+    "star": 4,
+    "shipCid": 10012212,
+    "min": {
+      "ABCD": [
+        250,
+        30,
+        300,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CVL",
+    "shipName": "追赶者",
+    "star": 4,
+    "shipCid": 10012412,
+    "min": {
+      "ABCD": [
+        250,
+        30,
+        300,
+        400
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "萨拉托加",
+    "star": 4,
+    "shipCid": 10003013,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "齐柏林伯爵",
+    "star": 4,
+    "shipCid": 10011813,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "约克城",
+    "star": 4,
+    "shipCid": 10012013,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "黄蜂",
+    "star": 4,
+    "shipCid": 10022513,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "加贺",
+    "star": 5,
+    "shipCid": 10002313,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "皇家方舟",
+    "star": 5,
+    "shipCid": 10011913,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "企业",
+    "star": 5,
+    "shipCid": 10012113,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "瑞鹤",
+    "star": 5,
+    "shipCid": 10021913,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "翔鹤",
+    "star": 5,
+    "shipCid": 10022013,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "埃塞克斯",
+    "star": 5,
+    "shipCid": 10022613,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "列克星敦(CV-16)",
+    "star": 5,
+    "shipCid": 10032513,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CV",
+    "shipName": "帝国",
+    "star": 5,
+    "shipCid": 10033913,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "AV",
+    "shipName": "光辉",
+    "star": 5,
+    "shipCid": 10037013,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        450,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "AV",
+    "shipName": "大凤",
+    "star": 5,
+    "shipCid": 10011713,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        450,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "AV",
+    "shipName": "信浓",
+    "star": 6,
+    "shipCid": 10022313,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        450,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "AV",
+    "shipName": "不挠",
+    "star": 5,
+    "shipCid": 10031913,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "AV",
+    "shipName": "天鹰",
+    "star": 5,
+    "shipCid": 10033813,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        400,
+        300
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "昆西",
+    "star": 3,
+    "shipCid": 10004012,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "古鹰",
+    "star": 3,
+    "shipCid": 10013112,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "加古",
+    "star": 3,
+    "shipCid": 10013212,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "青叶",
+    "star": 3,
+    "shipCid": 10013312,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "衣笠",
+    "star": 3,
+    "shipCid": 10013412,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "伦敦",
+    "star": 3,
+    "shipCid": 10013512,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "肯特",
+    "star": 3,
+    "shipCid": 10013612,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "波特兰",
+    "star": 3,
+    "shipCid": 10013712,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "彭萨科拉",
+    "star": 3,
+    "shipCid": 10013912,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "北安普顿",
+    "star": 3,
+    "shipCid": 10014112,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "新奥尔良",
+    "star": 3,
+    "shipCid": 10014312,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "约克",
+    "star": 3,
+    "shipCid": 10023812,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "埃克赛特",
+    "star": 3,
+    "shipCid": 10023912,
+    "min": {
+      "ABCD": [
+        300,
+        30,
+        250,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "威奇塔",
+    "star": 4,
+    "shipCid": 10003912,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "印第安纳波利斯",
+    "star": 4,
+    "shipCid": 10013812,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "最上",
+    "star": 4,
+    "shipCid": 10023312,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "三隈",
+    "star": 4,
+    "shipCid": 10023412,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "铃谷",
+    "star": 4,
+    "shipCid": 10023512,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "熊野",
+    "star": 4,
+    "shipCid": 10023612,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "旧金山",
+    "star": 4,
+    "shipCid": 10024012,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "阿尔及利亚",
+    "star": 4,
+    "shipCid": 10024612,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "奥古斯塔",
+    "star": 4,
+    "shipCid": 10032912,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "波尔扎诺",
+    "star": 4,
+    "shipCid": 10034012,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "欧根亲王",
+    "star": 5,
+    "shipCid": 10003812,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        350,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "巴尔的摩",
+    "star": 5,
+    "shipCid": 10024112,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        350,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "得梅因",
+    "star": 6,
+    "shipCid": 10024312,
+    "min": {
+      "ABCD": [
+        400,
+        30,
+        350,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CA",
+    "shipName": "莫斯科",
+    "star": 6,
+    "shipCid": 10035212,
+    "min": {
+      "ABCD": [
+        350,
+        30,
+        300,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CL",
+    "shipName": "林仙",
+    "star": 2,
+    "shipCid": 10005112,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "加拉蒂亚",
+    "star": 2,
+    "shipCid": 10005212,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        131
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "佩内洛珀",
+    "star": 2,
+    "shipCid": 10005312,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "埃姆登",
+    "star": 2,
+    "shipCid": 10014912,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "五十铃",
+    "star": 3,
+    "shipCid": 10004512,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "曙光女神",
+    "star": 3,
+    "shipCid": 10005412,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "亚特兰大",
+    "star": 3,
+    "shipCid": 10005612,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "朱诺",
+    "star": 3,
+    "shipCid": 10005712,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "布鲁克林",
+    "star": 3,
+    "shipCid": 10005812,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "圣胡安",
+    "star": 3,
+    "shipCid": 10015812,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "摩尔曼斯克",
+    "star": 3,
+    "shipCid": 10016012,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "莱比锡",
+    "star": 3,
+    "shipCid": 10024912,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        500,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "夕张",
+    "star": 4,
+    "shipCid": 10004612,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "海伦娜",
+    "star": 4,
+    "shipCid": 10005912,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "宁海",
+    "star": 4,
+    "shipCid": 10006012,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "平海",
+    "star": 4,
+    "shipCid": 10006112,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "基洛夫",
+    "star": 4,
+    "shipCid": 10014412,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "圣地亚哥",
+    "star": 4,
+    "shipCid": 10015712,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "逸仙",
+    "star": 4,
+    "shipCid": 10016212,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "克利夫兰",
+    "star": 4,
+    "shipCid": 10025212,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        200
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "纽伦堡",
+    "star": 4,
+    "shipCid": 10031212,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "哥特雄狮",
+    "star": 4,
+    "shipCid": 10031412,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "斯维尔德洛夫",
+    "star": 4,
+    "shipCid": 10035312,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "爱丁堡",
+    "star": 4,
+    "shipCid": 10015212,
+    "min": {
+      "ABCD": [
+        130,
+        30,
+        130,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        251,
+        null,
+        401,
+        231
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "库图佐夫",
+    "star": 4,
+    "shipCid": 10039012,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        500,
+        null,
+        600,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "贝尔法斯特",
+    "star": 5,
+    "shipCid": 10015312,
+    "min": {
+      "ABCD": [
+        130,
+        30,
+        130,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        251,
+        null,
+        401,
+        231
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "M计划",
+    "star": 5,
+    "shipCid": 10014812,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "大淀",
+    "star": 5,
+    "shipCid": 10024812,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "伟大的庞贝",
+    "star": 5,
+    "shipCid": 10033712,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "CL",
+    "shipName": "德格拉斯",
+    "star": 5,
+    "shipCid": 10033312,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CL",
+    "shipName": "虎",
+    "star": 5,
+    "shipCid": 10036012,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "CL",
+    "shipName": "海王星",
+    "star": 6,
+    "shipCid": 10037112,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "睦月",
+    "star": 1,
+    "shipCid": 10026011,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z1",
+    "star": 2,
+    "shipCid": 10007411,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "不知火",
+    "star": 2,
+    "shipCid": 10016711,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "黑潮",
+    "star": 2,
+    "shipCid": 10016811,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z17",
+    "star": 2,
+    "shipCid": 10026911,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z18",
+    "star": 2,
+    "shipCid": 10027011,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z24",
+    "star": 2,
+    "shipCid": 10007811,
+    "min": {
+      "ABCD": [
+        130,
+        30,
+        130,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z28",
+    "star": 2,
+    "shipCid": 10007911,
+    "min": {
+      "ABCD": [
+        130,
+        30,
+        130,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "晓",
+    "star": 3,
+    "shipCid": 10006811,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "响",
+    "star": 3,
+    "shipCid": 10006911,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "雷",
+    "star": 3,
+    "shipCid": 10007011,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "电",
+    "star": 3,
+    "shipCid": 10007111,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z31",
+    "star": 3,
+    "shipCid": 10008011,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "阳炎",
+    "star": 3,
+    "shipCid": 10016611,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z3",
+    "star": 3,
+    "shipCid": 10017011,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "波特",
+    "star": 3,
+    "shipCid": 10018211,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "村雨",
+    "star": 3,
+    "shipCid": 10026311,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "康弗斯",
+    "star": 3,
+    "shipCid": 10027511,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "戴森",
+    "star": 3,
+    "shipCid": 10027611,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "克拉克斯顿",
+    "star": 3,
+    "shipCid": 10027711,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "霍埃尔",
+    "star": 3,
+    "shipCid": 10027811,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "塞缪尔•罗伯茨",
+    "star": 3,
+    "shipCid": 10027911,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "约翰斯顿",
+    "star": 3,
+    "shipCid": 10028011,
+    "min": {
+      "ABCD": [
+        60,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        300,
+        null,
+        300,
+        101
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "拉菲",
+    "star": 4,
+    "shipCid": 10018311,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        130,
+        130,
+        130,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "卡米契亚·内拉",
+    "star": 4,
+    "shipCid": 10018511,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "阿维埃尔",
+    "star": 4,
+    "shipCid": 10018611,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "恩格斯",
+    "star": 4,
+    "shipCid": 10019311,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "时雨",
+    "star": 4,
+    "shipCid": 10026211,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "夕立",
+    "star": 4,
+    "shipCid": 10026411,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "岚",
+    "star": 4,
+    "shipCid": 10026511,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "马汉",
+    "star": 4,
+    "shipCid": 10030111,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "明斯克",
+    "star": 4,
+    "shipCid": 10031611,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "希尔曼",
+    "star": 4,
+    "shipCid": 10032211,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "伏尔塔",
+    "star": 4,
+    "shipCid": 10033511,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        100
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "菲尔普斯",
+    "star": 4,
+    "shipCid": 10035011,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        200,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "早春",
+    "star": 4,
+    "shipCid": 10037211,
+    "min": {
+      "ABCD": [
+        90,
+        30,
+        90,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "DD",
+    "shipName": "空想",
+    "star": 5,
+    "shipCid": 10009911,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "Z46",
+    "star": 5,
+    "shipCid": 10017111,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "奥班农",
+    "star": 5,
+    "shipCid": 10018011,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "威廉·D·波特",
+    "star": 5,
+    "shipCid": 10018111,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "塔什干",
+    "star": 5,
+    "shipCid": 10019211,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "雷鸣",
+    "star": 5,
+    "shipCid": 10028111,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "基辅",
+    "star": 5,
+    "shipCid": 10032311,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DD",
+    "shipName": "蒙彼利埃",
+    "star": 5,
+    "shipCid": 10034712,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "BM",
+    "shipName": "吞武里",
+    "star": 4,
+    "shipCid": 10025911,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        200,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "BM",
+    "shipName": "诺夫哥罗德",
+    "star": 6,
+    "shipCid": 10030911,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        200,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "SS",
+    "shipName": "K1",
+    "star": 3,
+    "shipCid": 10036111,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        400,
+        null,
+        400,
+        201
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "U1206",
+    "star": 4,
+    "shipCid": 10029311,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        212,
+        261,
+        203,
+        107
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "U-1405",
+    "star": 4,
+    "shipCid": 10035111,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        300,
+        null,
+        300,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "达芬奇",
+    "star": 4,
+    "shipCid": 10037311,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        200,
+        null,
+        200,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "大青花鱼",
+    "star": 5,
+    "shipCid": 10019411,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        300,
+        null,
+        300,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "射水鱼",
+    "star": 5,
+    "shipCid": 10019511,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        300,
+        null,
+        300,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "U505",
+    "star": 5,
+    "shipCid": 10019811,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        300,
+        null,
+        300,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "U96",
+    "star": 5,
+    "shipCid": 10029011,
+    "min": {
+      "ABCD": [
+        120,
+        30,
+        120,
+        30
+      ]
+    },
+    "max": {
+      "type": "and",
+      "ABCD": [
+        301,
+        null,
+        301,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "SS",
+    "shipName": "刺尾鱼",
+    "star": 5,
+    "shipCid": 10029411,
+    "min": {
+      "ABCD": [
+        30,
+        30,
+        60,
+        30
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        300,
+        null,
+        300,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "SC",
+    "shipName": "M1",
+    "star": 3,
+    "shipCid": 10019611,
+    "min": {
+      "ABCD": [
+        50,
+        200,
+        100,
+        30
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        null,
+        null,
+        300,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "SC",
+    "shipName": "絮库夫",
+    "star": 3,
+    "shipCid": 10019911,
+    "min": {
+      "ABCD": [
+        50,
+        200,
+        100,
+        30
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        null,
+        null,
+        300,
+        130
+      ]
+    }
+  },
+  {
+    "shipType": "ASDG",
+    "shipName": "炽热",
+    "star": 3,
+    "shipCid": 10036311,
+    "min": {
+      "ABCD": [
+        200,
+        130,
+        130,
+        200
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        null,
+        null,
+        600,
+        null
+      ]
+    }
+  },
+  {
+    "shipType": "AP",
+    "shipName": "女灶神",
+    "star": 5,
+    "shipCid": 10030711,
+    "min": {
+      "ABCD": [
+        200,
+        30,
+        200,
+        30
+      ]
+    },
+    "max": null
+  },
+  {
+    "shipType": "DDG",
+    "shipName": "查尔斯·亚当斯",
+    "star": 5,
+    "shipCid": 10039111,
+    "min": {
+      "ABCD": [
+        200,
+        130,
+        130,
+        200
+      ]
+    },
+    "max": {
+      "type": "or",
+      "ABCD": [
+        600,
+        null,
+        600,
+        null
+      ]
+    }
+  }
+]
